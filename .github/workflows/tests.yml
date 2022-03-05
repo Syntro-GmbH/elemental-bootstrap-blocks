@@ -32,56 +32,56 @@ env:
   SS_ENVIRONMENT_TYPE: "dev"
   RECIPE_CMS_VERSION: 4.x-dev
 jobs:
-  phpunit:
-    name: 🧩 PHPUnit
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        php:
-          - 7.3
-          - 7.4
-    container: brettt89/silverstripe-web:${{ matrix.php }}-apache
-    services:
-      database:
-        image: mysql:5.7
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    env:
-      SS_DEFAULT_ADMIN_USERNAME: admin
-      SS_DEFAULT_ADMIN_PASSWORD: admin
-      SS_DATABASE_SERVER: database
-      SS_DATABASE_NAME: ss_default_${{ matrix.php }}
-      SS_DATABASE_USERNAME: root
-      SS_DATABASE_PASSWORD: ''
-      SS_ENVIRONMENT_TYPE: dev
-    steps:
-      - name: Install Composer
-        run: |
-          curl \
-            -sS https://getcomposer.org/installer \
-            | php && \
-            mv -f composer.phar /usr/local/bin/composer
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: install dependencies
-        run: |
-          composer require --no-update silverstripe/recipe-cms:$RECIPE_CMS_VERSION &&\
-          composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
-      - name: run phpunit
-        run: vendor/bin/phpunit -c "phpunit.xml" tests/
-      - name: generate coverage
-        run: phpdbg -qrr vendor/bin/phpunit -dmemory_limit=512M --coverage-clover=coverage.xml tests/
-        if: ${{ matrix.php == '7.4' }}
-      - name: submit coverage
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
-        if: ${{ matrix.php == '7.4' }}
+  # phpunit:
+  #   name: 🧩 PHPUnit
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       php:
+  #         - 7.3
+  #         - 7.4
+  #   container: brettt89/silverstripe-web:${{ matrix.php }}-apache
+  #   services:
+  #     database:
+  #       image: mysql:5.7
+  #       ports:
+  #         - 3306:3306
+  #       options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+  #       env:
+  #         MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  #   env:
+  #     SS_DEFAULT_ADMIN_USERNAME: admin
+  #     SS_DEFAULT_ADMIN_PASSWORD: admin
+  #     SS_DATABASE_SERVER: database
+  #     SS_DATABASE_NAME: ss_default_${{ matrix.php }}
+  #     SS_DATABASE_USERNAME: root
+  #     SS_DATABASE_PASSWORD: ''
+  #     SS_ENVIRONMENT_TYPE: dev
+  #   steps:
+  #     - name: Install Composer
+  #       run: |
+  #         curl \
+  #           -sS https://getcomposer.org/installer \
+  #           | php && \
+  #           mv -f composer.phar /usr/local/bin/composer
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #     - name: install dependencies
+  #       run: |
+  #         composer require --no-update silverstripe/recipe-cms:$RECIPE_CMS_VERSION &&\
+  #         composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
+  #     - name: run phpunit
+  #       run: vendor/bin/phpunit -c "phpunit.xml" tests/
+  #     - name: generate coverage
+  #       run: phpdbg -qrr vendor/bin/phpunit -dmemory_limit=512M --coverage-clover=coverage.xml tests/
+  #       if: ${{ matrix.php == '7.4' }}
+  #     - name: submit coverage
+  #       uses: codecov/codecov-action@v2
+  #       with:
+  #         token: ${{ secrets.CODECOV_TOKEN }}
+  #         files: ./coverage.xml
+  #       if: ${{ matrix.php == '7.4' }}
   phpstan:
     name: 🔺 PHPStan
     runs-on: ubuntu-latest
