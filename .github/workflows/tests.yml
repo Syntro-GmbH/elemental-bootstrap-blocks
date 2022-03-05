@@ -111,7 +111,7 @@ jobs:
         uses: chindit/actions-phpcs@master
         with:
           dir: src/
-      - name: lint tests
-        uses: chindit/actions-phpcs@master
-        with:
-          dir: tests/
+      # - name: lint tests
+      #   uses: chindit/actions-phpcs@master
+      #   with:
+      #     dir: tests/
