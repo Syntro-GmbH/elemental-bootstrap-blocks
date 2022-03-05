@@ -7,7 +7,6 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
 
-
 /**
  * Extends an element with the option to display items in a carousel
  *
@@ -32,7 +31,9 @@ class UseCarouselExtension extends DataExtension
     ];
 
     /**
-     * CMS Fields
+     * updateCMSFields
+     *
+     * @param  FieldList $fields the original fields
      * @return FieldList
      */
     public function updateCMSFields($fields)
@@ -50,5 +51,4 @@ class UseCarouselExtension extends DataExtension
         $fields->insertAfter('Title', $carouselField);
         return $fields;
     }
-
 }

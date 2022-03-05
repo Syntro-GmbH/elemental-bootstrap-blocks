@@ -79,5 +79,4 @@ class AccordionItem extends BaseItem
 
         return $fields;
     }
-
 }

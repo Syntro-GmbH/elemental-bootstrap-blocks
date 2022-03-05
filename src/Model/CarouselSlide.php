@@ -106,5 +106,4 @@ class CarouselSlide extends BaseItem
 
         return $fields;
     }
-
 }

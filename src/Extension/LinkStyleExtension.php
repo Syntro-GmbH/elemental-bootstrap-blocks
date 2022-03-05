@@ -8,7 +8,6 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Core\ClassInfo;
 
-
 /**
  * Extends an element with the option to switch the style of the link in the
  * template. This extension adds a dropdown to the CMS fields, listing the
@@ -45,7 +44,9 @@ class LinkStyleExtension extends DataExtension
     ];
 
     /**
-     * CMS Fields
+     * updateCMSFields
+     *
+     * @param  FieldList $fields the original fields
      * @return FieldList
      */
     public function updateCMSFields($fields)
@@ -60,11 +61,11 @@ class LinkStyleExtension extends DataExtension
         if ($link_styles && count($link_styles) > 0) {
             $link_styles_options = [];
             foreach ($link_styles as $key => $value) {
-                $link_styles_options[$key] = _t(ClassInfo::class_name($owner).'.LINKSTYLE_'.$key, $value);
+                $link_styles_options[$key] = _t(ClassInfo::class_name($owner) . '.LINKSTYLE_' . $key, $value);
             }
-            $styleDropdown = DropdownField::create('LinkStyle', _t(__CLASS__.'.LINKSTYLE', 'Link Style'), $link_styles_options);
+            $styleDropdown = DropdownField::create('LinkStyle', _t(__CLASS__ . '.LINKSTYLE', 'Link Style'), $link_styles_options);
             // $fields->insertBefore($styleDropdown, 'ExtraClass');
-            $styleDropdown->setEmptyString(_t(__CLASS__.'.DEFAULT', 'Default'));
+            $styleDropdown->setEmptyString(_t(__CLASS__ . '.DEFAULT', 'Default'));
         }
 
         if (!is_null($styleDropdown)) {

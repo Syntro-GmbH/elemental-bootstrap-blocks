@@ -6,7 +6,6 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 
-
 /**
  * Extends an element with the option to control the width of
  *
@@ -30,8 +29,11 @@ class SplitRatioExtension extends DataExtension
         'LeftSideWidth' => '7'
     ];
 
+
     /**
-     * CMS Fields
+     * updateCMSFields
+     *
+     * @param  FieldList $fields the original fields
      * @return FieldList
      */
     public function updateCMSFields($fields)
@@ -41,7 +43,7 @@ class SplitRatioExtension extends DataExtension
         ]);
         $widthField = DropdownField::create(
             'LeftSideWidth',
-            _t(__CLASS__.'.FIELDTITLE', 'Columns size ratio'),
+            _t(__CLASS__ . '.FIELDTITLE', 'Columns size ratio'),
             [
                 '5' => '5:7',
                 '6' => '6:6',
@@ -56,11 +58,23 @@ class SplitRatioExtension extends DataExtension
         return $fields;
     }
 
+    /**
+     * getLeftWidth - get the width of the left element in the bootstrap grid
+     *
+     * @param  int $adjust = 0 adjust the size
+     * @return int
+     */
     public function getLeftWidth($adjust = 0)
     {
         return ($this->getOwner()->LeftSideWidth) + $adjust;
     }
 
+    /**
+     * getRightWidth - get the width of the right element in the bootstrap grid
+     *
+     * @param  int $adjust = 0 adjust the size
+     * @return int
+     */
     public function getRightWidth($adjust = 0)
     {
         return (12 - $this->getOwner()->LeftSideWidth) + $adjust;

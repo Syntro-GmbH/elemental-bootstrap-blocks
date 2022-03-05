@@ -8,7 +8,6 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
 
-
 /**
  * Allows the styles dropdown of an element to be translated by adding
  * a key <class>.STYLE_<stylekey> to the translation file.
@@ -18,7 +17,9 @@ use SilverStripe\Forms\CheckboxField;
 class TranslatedStylesExtension extends DataExtension
 {
     /**
-     * CMS Fields
+     * updateCMSFields
+     *
+     * @param  FieldList $fields the original fields
      * @return FieldList
      */
     public function updateCMSFields($fields)
@@ -30,11 +31,10 @@ class TranslatedStylesExtension extends DataExtension
             $sourceArray = $styleField->getSource();
             $translatedArray = [];
             foreach ($sourceArray as $key => $value) {
-                $translatedArray[$key] = _t(ClassInfo::class_name($owner).'.STYLE_'.$key, $value);
+                $translatedArray[$key] = _t(ClassInfo::class_name($owner) . '.STYLE_' . $key, $value);
             }
             $styleField->setSource($translatedArray);
         }
         return $fields;
     }
-
 }

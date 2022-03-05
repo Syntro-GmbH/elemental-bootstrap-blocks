@@ -8,7 +8,6 @@ use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FieldGroup;
 
-
 /**
  * Extends an element with an option to let the user choose between spacing
  * options before and after an element.
@@ -45,7 +44,9 @@ class SpacingExtension extends DataExtension
     ];
 
     /**
-     * CMS Fields
+     * updateCMSFields
+     *
+     * @param  FieldList $fields the original fields
      * @return FieldList
      */
     public function updateCMSFields($fields)
@@ -56,26 +57,25 @@ class SpacingExtension extends DataExtension
         if ($spacing_before && count($spacing_before) > 0) {
             $spacing_after_options = [];
             foreach ($spacing_before as $key => $value) {
-                $spacing_before_options[$key] = _t(__CLASS__.'.BEFORELABEL_'.$key, $value);
+                $spacing_before_options[$key] = _t(__CLASS__ . '.BEFORELABEL_' . $key, $value);
             }
-            $spacingBeforeDropdown = DropdownField::create('SpacingBefore', _t(__CLASS__.'.SPACINGBEFORETITLE', 'Spacing Before'), $spacing_before_options);
+            $spacingBeforeDropdown = DropdownField::create('SpacingBefore', _t(__CLASS__ . '.SPACINGBEFORETITLE', 'Spacing Before'), $spacing_before_options);
             // $fields->insertBefore($spacingBeforeDropdown, 'ExtraClass');
-            $spacingBeforeDropdown->setEmptyString(_t(__CLASS__.'.DEFAULT', 'Default'));
+            $spacingBeforeDropdown->setEmptyString(_t(__CLASS__ . '.DEFAULT', 'Default'));
             $translatedFields[] = $spacingBeforeDropdown;
         }
         $spacing_after = $this->getOwner()->config()->get('spacing_after');
         if ($spacing_after && count($spacing_after) > 0) {
             $spacing_after_options = [];
             foreach ($spacing_after as $key => $value) {
-                $spacing_after_options[$key] = _t(__CLASS__.'.AFTERLABEL_'.$key, $value);
+                $spacing_after_options[$key] = _t(__CLASS__ . '.AFTERLABEL_' . $key, $value);
             }
-            $spacingAfterDropdown = DropdownField::create('SpacingAfter', _t(__CLASS__.'.SPACINGAFTERTITLE', 'Spacing After'), $spacing_after_options);
+            $spacingAfterDropdown = DropdownField::create('SpacingAfter', _t(__CLASS__ . '.SPACINGAFTERTITLE', 'Spacing After'), $spacing_after_options);
             // $fields->insertBefore($spacingAfterDropdown, 'ExtraClass');
-            $spacingAfterDropdown->setEmptyString(_t(__CLASS__.'.DEFAULT', 'Default'));
+            $spacingAfterDropdown->setEmptyString(_t(__CLASS__ . '.DEFAULT', 'Default'));
             $translatedFields[] = $spacingAfterDropdown;
         }
         if (count($translatedFields) > 0) {
-
             // $fields->insertAfter(
             //     HeaderField::create(
             //         'SpacingOptions',
@@ -85,7 +85,7 @@ class SpacingExtension extends DataExtension
             // );
             $fields->insertAfter(
                 FieldGroup::create(
-                    _t(__CLASS__.'.TOGGLETITLE', 'Spacing'),
+                    _t(__CLASS__ . '.TOGGLETITLE', 'Spacing'),
                     $translatedFields
                 ),
                 'ExtraClass'
@@ -96,9 +96,7 @@ class SpacingExtension extends DataExtension
             //         'SpacingOptions'
             //     );
             // }
-
         }
         return $fields;
     }
-
 }

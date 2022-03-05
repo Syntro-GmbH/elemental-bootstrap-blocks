@@ -95,5 +95,4 @@ class Tab extends BaseItem
 
         return $fields;
     }
-
 }

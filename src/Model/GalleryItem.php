@@ -131,5 +131,4 @@ class GalleryItem extends BaseItem
         }
         return $result;
     }
-
 }

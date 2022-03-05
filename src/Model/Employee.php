@@ -170,5 +170,4 @@ class Employee extends BaseItem
             $this->SMLInstagram
         );
     }
-
 }

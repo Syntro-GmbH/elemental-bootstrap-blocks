@@ -5,7 +5,6 @@ namespace Syntro\ElementalBootstrapBlocks\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Core\Extension;
 
-
 /**
  * enables multiple controllers, see {@see MultiHolderExtension}
  *
@@ -25,7 +24,7 @@ class MultiHolderControllerExtension extends Extension
     {
         $myElement = $this->getOwner()->getElement();
         if ($myElement->has_extension(MultiHolderExtension::class) && $myElement->HolderStyle) {
-            $template = $template .'_'. $myElement->HolderStyle;
+            $template = $template . '_' . $myElement->HolderStyle;
         }
 
         return $template;

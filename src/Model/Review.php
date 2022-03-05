@@ -129,5 +129,4 @@ class Review extends BaseItem
         }
         return $result;
     }
-
 }
