@@ -2,6 +2,7 @@
 
 namespace Syntro\ElementalBootstrapBlocks\Model;
 
+use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
