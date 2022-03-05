@@ -55,7 +55,7 @@ class SpacingExtension extends DataExtension
         $translatedFields = [];
         $spacing_before = $this->getOwner()->config()->get('spacing_before');
         if ($spacing_before && count($spacing_before) > 0) {
-            $spacing_after_options = [];
+            $spacing_before_options = [];
             foreach ($spacing_before as $key => $value) {
                 $spacing_before_options[$key] = _t(__CLASS__ . '.BEFORELABEL_' . $key, $value);
             }

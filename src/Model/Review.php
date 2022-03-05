@@ -2,6 +2,7 @@
 
 namespace Syntro\ElementalBootstrapBlocks\Model;
 
+use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Assets\Image;

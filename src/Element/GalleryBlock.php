@@ -1,8 +1,9 @@
 <?php
 namespace Syntro\ElementalBootstrapBlocks\Element;
 
-use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Assets\Image;
 use DNADesign\Elemental\Models\BaseElement;
 use Syntro\SilverStripeElementalBaseitem\Forms\GridFieldConfig_ElementalChildren;

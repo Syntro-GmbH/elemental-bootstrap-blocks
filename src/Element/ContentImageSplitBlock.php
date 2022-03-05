@@ -2,6 +2,8 @@
 namespace Syntro\ElementalBootstrapBlocks\Element;
 
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use DNADesign\Elemental\Models\ElementContent;
 use Syntro\ElementalBootstrapBlocks\Extension\SplitRatioExtension;
 
@@ -101,6 +103,7 @@ class ContentImageSplitBlock extends ElementContent
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        /** @var UploadField $imageField */
         $imageField = $fields->fieldByName('Root.Main.Image');
         $imageField->setTitle(_t(__CLASS__ . '.IMAGETITLE', 'Image'));
         $imageField->setFolderName('Elements/ContentImageSplit');
