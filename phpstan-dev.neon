@@ -2,5 +2,7 @@ parameters:
     autoload_directories:
         - src
         # - tests/php
+    ignoreErrors:
+        - '#Call to an undefined method UncleCheese\\DisplayLogic\\Criteria::*+#'
 includes:
     - ../../symbiote/silverstripe-phpstan/phpstan.neon
