@@ -1,0 +1,14 @@
+---
+Name: elemental-bootstrap-blocks
+---
+# DNADesign\Elemental\Models\ElementContent:
+#   defaults:
+
+DNADesign\Elemental\Controllers\ElementController:
+  extensions:
+    - Syntro\ElementalBootstrapBlocks\Extension\MultiHolderControllerExtension
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - Syntro\ElementalBootstrapBlocks\Extension\MultiHolderExtension
+    - Syntro\ElementalBootstrapBlocks\Extension\SpacingExtension
+    - Syntro\ElementalBootstrapBlocks\Extension\TranslatedStylesExtension

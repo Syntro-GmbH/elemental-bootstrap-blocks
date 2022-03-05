@@ -1,0 +1,85 @@
+de:
+  Syntro\ElementalBootstrapBlocks\Extension\MultiHolderExtension:
+    HOLDERSTYLE: Hintergrund-Stilvariation
+    DEFAULT: Standard
+    TOGGLETITLE: Stil
+  Syntro\ElementalBootstrapBlocks\Extension\SplitRatioExtension:
+    FIELDTITLE: Spaltengrössenverhältnis
+  Syntro\ElementalBootstrapBlocks\Extension\SpacingExtension:
+    SPACINGBEFORETITLE: 'Abstand zum vorherigen Block'
+    SPACINGAFTERTITLE: 'Abstand zum nächsten Block'
+    DEFAULT: 'Standard'
+    TOGGLETITLE: Abstände
+  Syntro\ElementalBootstrapBlocks\Extension\UseCarouselExtension:
+    USECAROUSEL: Als Karussell darstellen
+    USECAROUSELDESC: Wenn aktiv werden alle Karten auf einer Zeile als Karussell dargestellt.
+  Syntro\ElementalBootstrapBlocks\Element\HeroBlock:
+    BlockType: Hero
+  Syntro\ElementalBootstrapBlocks\Element\ContentImageSplitBlock:
+    IMAGETITLE: 'Bild'
+    BlockType: 'Bild & Inhalt'
+    STYLE_leftimage: Bild links
+    STYLE_rightimage: Bild rechts
+  Syntro\ElementalBootstrapBlocks\Element\CardDeckBlock:
+    BlockType: Kartenstapel
+  Syntro\ElementalBootstrapBlocks\Model\Card:
+    CONTENTTITLE: Inhalt
+    IMAGETITLE: Bild
+    LINKTITLE: Link
+  Syntro\ElementalBootstrapBlocks\Element\CarouselBlock:
+    BlockType: Karousell
+  Syntro\ElementalBootstrapBlocks\Model\CarouselSlide:
+    CONTENTTITLE: Inhalt
+    IMAGETITLE: Bild
+    LINKTITLE: Link
+  Syntro\ElementalBootstrapBlocks\Element\CustomerReviewBlock:
+    BlockType: 'Kundenbewertungen'
+  Syntro\ElementalBootstrapBlocks\Model\Review:
+    NOCOMMENT: Kein Kommentar
+    TITLETITLE: 'Name'
+    COMMENTTITLE: 'Kommentar'
+    SCORETITLE: 'Bewertung'
+    PORTRAITTITLE: 'Portrait'
+    SCORENOTSET: 'Bitte gib eine Bewertung ein'
+    TITLENOTSET: 'Bitte gib einen Namen an'
+  Syntro\ElementalBootstrapBlocks\Element\TabSetBlock:
+    BlockType: 'Tab Set'
+  Syntro\ElementalBootstrapBlocks\Model\Tab:
+    CONTENTTITLE: 'Inhalt'
+    ICONTITLE: 'Icon'
+    ICONDESC:
+      Verfügbare Icons findest du auf der
+      <a href="https://boxicons.com/" target="_blank">Boxicons Webseite</a>.
+      Klicke dort auf das Icon deiner Wahl, wähle das <code>Font</code> Tab aus
+      und kopiere das zweite Argument im class Attribute (z.B. <code>bxl-unity</code>).
+    IMAGETITLE: 'Bild'
+    IMAGEDESCRIPTION: 'Wenn du ein Bild hochlädst, dann werden zwei 1:1 Spalten angezeigt. Das Bild ist in der rechten Spalte.'
+  Syntro\ElementalBootstrapBlocks\Element\AccordionBlock:
+    BlockType: 'Accordion'
+    STARTEXPANDEDTITLE: 'Geöffnet starten'
+    STARTEXPANDEDDESCRIPTION: 'Wenn aktiv wird das erste Element geöffnet geladen'
+  Syntro\ElementalBootstrapBlocks\Model\AccordionItem:
+    CONTENTTITLE: 'Inhalt'
+  Syntro\ElementalBootstrapBlocks\Element\EmployeesBlock:
+    BlockType: 'Mitarbeiter'
+  Syntro\ElementalBootstrapBlocks\Model\Employee:
+    TITLETITLE: 'Name'
+    POSITIONTITLE: 'Position'
+    SOMEINTRO: 'Wenn du einen Link zum entsprechenden Profil eingibst, erscheint dieser auf der Seite.'
+    SOMETITLE: 'Soziale Profile'
+    TITLENOTSET: 'Bitte gib einen Namen ein'
+    PORTRAITNOTSET: 'Bitte lade ein Bild hoch'
+  Syntro\ElementalBootstrapBlocks\Element\GalleryBlock:
+    BlockType: 'Bildergallerie'
+  Syntro\ElementalBootstrapBlocks\Model\GalleryItem:
+    TITLETITLE: 'Bildunterschrift'
+    PORTRAITTITLE: 'Bild'
+    ISVIDEOTITLE: 'Ist ein Video'
+    VIDEOTITLE: 'Video URL'
+    VIDEODESC: 'Füge die Video-URL hier ein. Sie sollte in etwa so aussehen: <code>https://www.youtube.com/watch?v=XXXXXXXXXXX</code>'
+    IMAGENOTSET: 'Lade ein Bild hoch'
+    VIDEOURLNOTSET: 'Bitte gib eine Video-URL ein'
+  Syntro\ElementalBootstrapBlocks\Element\ImageBlock:
+    BlockType: Bild
+  Syntro\ElementalBootstrapBlocks\Element\BreadcrumbsBlock:
+    BlockType: Brotkrumen
