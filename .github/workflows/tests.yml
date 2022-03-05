@@ -30,7 +30,7 @@ env:
   DB: MYSQL
   PDO: 1
   SS_ENVIRONMENT_TYPE: "dev"
-  RECIPE_CMS_VERSION: 4.x-dev
+  RECIPE_CMS_VERSION: '4.10'
 jobs:
   # phpunit:
   #   name: 🧩 PHPUnit
