@@ -13,6 +13,8 @@ de:
   Syntro\ElementalBootstrapBlocks\Extension\UseCarouselExtension:
     USECAROUSEL: Als Karussell darstellen
     USECAROUSELDESC: Wenn aktiv werden alle Karten auf einer Zeile als Karussell dargestellt.
+    AUTOPLAY: Autoplay aktivieren
+    AUTOPLAYDESC: Wenn aktiv wird das Karousell automatisch rotieren.
   Syntro\ElementalBootstrapBlocks\Element\HeroBlock:
     BlockType: Hero
   Syntro\ElementalBootstrapBlocks\Element\ContentImageSplitBlock:
