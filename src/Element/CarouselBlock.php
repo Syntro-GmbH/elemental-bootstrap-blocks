@@ -78,7 +78,9 @@ class CarouselBlock extends BaseElement
      * Add default values to database
      *  @var array
      */
-    private static $defaults = [];
+    private static $defaults = [
+        'Autoplay' => true
+    ];
 
     /**
      * Has_one relationship
