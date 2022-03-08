@@ -45,9 +45,13 @@ class SplitRatioExtension extends DataExtension
             'LeftSideWidth',
             _t(__CLASS__ . '.FIELDTITLE', 'Columns size ratio'),
             [
+                '3' => '3:9',
+                '4' => '4:8',
                 '5' => '5:7',
                 '6' => '6:6',
                 '7' => '7:5',
+                '8' => '8:4',
+                '9' => '9:3'
             ]
         );
         $fields->addFieldToTab(
