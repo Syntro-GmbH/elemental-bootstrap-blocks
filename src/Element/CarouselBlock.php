@@ -71,13 +71,16 @@ class CarouselBlock extends BaseElement
      * @var array
      */
     private static $db = [
+        'Autoplay' => 'Boolean'
     ];
 
     /**
      * Add default values to database
      *  @var array
      */
-    private static $defaults = [];
+    private static $defaults = [
+        'Autoplay' => true
+    ];
 
     /**
      * Has_one relationship
@@ -115,6 +118,7 @@ class CarouselBlock extends BaseElement
             $griditems->setConfig(GridFieldConfig_ElementalChildren::create());
             $fields->removeByName([
                 'Slides',
+                'Autoplay',
                 'Root.Slides.Slides'
             ]);
             $fields->addFieldToTab(
@@ -124,9 +128,18 @@ class CarouselBlock extends BaseElement
         } else {
             $fields->removeByName([
                 'Slides',
+                'Autoplay',
                 'Root.Slides.Slides'
             ]);
         }
+        $fields->addFieldToTab(
+            'Root.Settings',
+            $autoplayField = CheckboxField::create(
+                'Autoplay',
+                _t(__CLASS__ . '.AUTOPLAYTITLE', 'Enable autoplay')
+            ),
+            'ExtraClass'
+        );
         return $fields;
     }
 

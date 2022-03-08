@@ -20,6 +20,7 @@ class UseCarouselExtension extends DataExtension
      */
     private static $db = [
         'UseCarousel' => 'Boolean',
+        'UseCarouselAutoplay' => 'Boolean'
     ];
 
     /**
@@ -27,7 +28,8 @@ class UseCarouselExtension extends DataExtension
      *  @var array
      */
     private static $defaults = [
-        'UseCarousel' => true
+        'UseCarousel' => true,
+        'UseCarouselAutoplay' => false,
     ];
 
     /**
@@ -39,7 +41,8 @@ class UseCarouselExtension extends DataExtension
     public function updateCMSFields($fields)
     {
         $fields->removeByName([
-            'UseCarousel'
+            'UseCarousel',
+            'UseCarouselAutoplay'
         ]);
         $carouselField = CheckboxField::create(
             'UseCarousel',
@@ -49,6 +52,16 @@ class UseCarouselExtension extends DataExtension
             _t(__CLASS__ . '.USECAROUSELDESC', 'If enabled, cards that would be displayed in a new row are displayed in a carousel.')
         );
         $fields->insertAfter('Title', $carouselField);
+
+        $autoplayField = CheckboxField::create(
+            'UseCarouselAutoplay',
+            _t(__CLASS__ . '.AUTOPLAY', 'Enable Autoplay')
+        );
+        $autoplayField->setDescription(
+            _t(__CLASS__ . '.AUTOPLAYDESC', 'If enabled, the carousel will automatically rotate.')
+        );
+        $autoplayField->displayIf('UseCarousel')->isChecked();
+        $fields->insertAfter('UseCarousel', $autoplayField);
         return $fields;
     }
 }
