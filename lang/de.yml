@@ -28,6 +28,7 @@ de:
     LINKTITLE: Link
   Syntro\ElementalBootstrapBlocks\Element\CarouselBlock:
     BlockType: Karousell
+    AUTOPLAYTITLE: Autoplay aktivieren
   Syntro\ElementalBootstrapBlocks\Model\CarouselSlide:
     CONTENTTITLE: Inhalt
     IMAGETITLE: Bild
