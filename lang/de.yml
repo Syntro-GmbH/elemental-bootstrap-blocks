@@ -86,3 +86,24 @@ de:
     BlockType: Bild
   Syntro\ElementalBootstrapBlocks\Element\BreadcrumbsBlock:
     BlockType: Brotkrumen
+  Syntro\ElementalBootstrapBlocks\Element\MapBlock:
+    MapSettingsTabLabel: Karteneinstellungen
+    ZOOMTITLE: Standard Zoom-Level
+    STYLETITLE: Kartenstil
+    FITMARKERSTITLE: Zoom und Zentrum an Marker anpassen
+    ZOOMDESC: Gib eine Zahl zwischen 0 und 18 ein, wobei 18 am stärksten gezoomt ist.
+    STYLEDESC: JSON formatierter Kartenstil. Besuche <a href="https://mapstyle.withgoogle.com/" target="_blank">die Dokumentation</a> für mehr Informationen.
+    FITMARKERSDESC: Bei nur einem einzelnen Marker ist diese Funktion automatisch deaktiviert.
+    CONTENTTITLE: Inhalt
+    BlockType: Karte
+  Syntro\ElementalBootstrapBlocks\Model\MapMarker:
+    SettingsTabLabel: Einstellungen
+    SHOWINFOTITLE: Info-Sprechblase direkt einblenden
+    SHOWINFODESC: Wenn angewählt wird die Informationssprechblase direkt angezeigt. Andernfalls muss der Nutzer erst auf den Marker klicken.
+    INFOTITLE: Info
+    LATLONGDESC: Öffne Google Maps und rechtsklicke auf die Stelle, an der du den Marker setzen möchtest.  Wähle die Koordinaten aus und füge sie hier ein. Das Format ist (Längengrad,Breitengrad).
+    LATLONGTITLE: Koordinaten
+    LATTITLE: Längengrad
+    LONGTITLE: Breitengrad
+    LATNOTSET: Bitte füge einen Längengrad ein
+    LONGNOTSET: Bitte füge einen Breitengrad ein
