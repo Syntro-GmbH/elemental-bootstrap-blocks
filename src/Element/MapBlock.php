@@ -18,6 +18,11 @@ use Syntro\ElementalBootstrapBlocks\Model\MapMarker;
  */
 class MapBlock extends BaseElement
 {
+
+    /**
+     * @config
+     */
+    private static $google_maps_api_key = '';
     /**
      * Defines the database table name
      *  @var string
@@ -178,8 +183,9 @@ class MapBlock extends BaseElement
      */
     public function forTemplate($holder = true)
     {
+        $apikey = $this->config()->get('google_maps_api_key');
         Requirements::javascript('syntro/elemental-bootstrap-blocks:client/dist/mapblock/bundle.js');
-        Requirements::javascript('https://maps.googleapis.com/maps/api/js?key=AIzaSyCUCy97ZZGX0cSdLcKArK6BvVT1SsCP3sE&libraries=places&callback=initMap');
+        Requirements::javascript("https://maps.googleapis.com/maps/api/js?key=$apikey&libraries=places&callback=initMap");
         return parent::forTemplate($holder);
     }
 
