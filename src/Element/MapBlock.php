@@ -195,13 +195,13 @@ class MapBlock extends BaseElement
     }
 
     /**
-     * getMarkerAttr - description
+     * getMarkerAttr
      *
-     * @return {type}  description
+     * @return string
      */
     public function getMarkerAttr()
     {
-        $markesr = [];
+        $markers = [];
         foreach ($this->Markers() as $marker) {
             $markers[] = [
                 'lat' => $marker->Lat,
@@ -213,6 +213,11 @@ class MapBlock extends BaseElement
         return 'data-marker='.json_encode($markers);
     }
 
+    /**
+     * getMapoptionsAttr
+     *
+     * @return string
+     */
     public function getMapoptionsAttr()
     {
         $options = [
