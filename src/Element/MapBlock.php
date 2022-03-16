@@ -72,6 +72,15 @@ class MapBlock extends BaseElement
     private static $styles = [];
 
     /**
+     * Ensures that the methods are wrapped in the correct type and
+     * values are safely escaped while rendering in the template.
+     * @var array
+     */
+    private static $casting = [
+        'GoogleJS' => 'HTMLVarchar'
+    ];
+
+    /**
      * Database fields
      * @var array
      */
@@ -175,20 +184,6 @@ class MapBlock extends BaseElement
         return $fields;
     }
 
-    /**
-     * forTemplate - update the requirements
-     *
-     * @param  bool $holder = true wether to include the holder
-     * @return string|null
-     */
-    public function forTemplate($holder = true)
-    {
-        $apikey = $this->config()->get('google_maps_api_key');
-        Requirements::javascript('syntro/elemental-bootstrap-blocks:client/dist/mapblock/bundle.js');
-        Requirements::javascript("https://maps.googleapis.com/maps/api/js?key=$apikey&libraries=places&callback=initMap");
-        return parent::forTemplate($holder);
-    }
-
 
     /**
      * getType
@@ -232,5 +227,18 @@ class MapBlock extends BaseElement
             'styles' => json_decode($this->MapStyle)
         ];
         return 'data-mapoptions='.json_encode($options);
+    }
+
+    /**
+     * getController - update the requirements
+     *
+     * @return string
+     */
+    public function getGoogleJS()
+    {
+        $apikey = $this->config()->get('google_maps_api_key');
+        // Requirements::javascript('syntro/elemental-bootstrap-blocks:client/dist/mapblock/bundle.js');
+        // Requirements::javascript("https://maps.googleapis.com/maps/api/js?key=$apikey&libraries=places&callback=initMap");
+        return "https://maps.googleapis.com/maps/api/js?key=$apikey&libraries=places&callback=initMap";
     }
 }
