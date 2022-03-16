@@ -39,5 +39,10 @@
         "phpunit-flush": "../../bin/phpunit . '' flush=1"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "extra": {
+        "expose": [
+            "client/dist"
+        ]
+    }
 }
