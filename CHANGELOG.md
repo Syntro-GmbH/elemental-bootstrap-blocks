@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="1.1.1"></a>
+## [1.1.1] - 2022-03-17
+### 🐞 Fixed
+- Map renders when not flushed
+
+
 <a name="1.1.0"></a>
 ## [1.1.0] - 2022-03-17
 ### 🍰 Added
@@ -36,7 +42,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - phpcs
 
 
-[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.1.1...HEAD
+[1.1.1]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.0.0...1.0.1
