@@ -98,6 +98,7 @@ jobs:
       - name: install dependencies
         run: |
           composer require --no-update silverstripe/recipe-cms:$RECIPE_CMS_VERSION &&\
+          composer require --no-update silverstripe/blog &&\
           composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
       - name: run phpstan
         run: vendor/bin/phpstan analyse src/ -c "phpstan.neon" -a vendor/symbiote/silverstripe-phpstan/bootstrap.php --level 4

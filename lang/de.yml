@@ -107,3 +107,17 @@ de:
     LONGTITLE: Breitengrad
     LATNOTSET: Bitte füge einen Längengrad ein
     LONGNOTSET: Bitte füge einen Breitengrad ein
+  Syntro\ElementalBootstrapBlocks\Element\BlogPostReelBlock:
+    SELECTPOSTSTITLE: Zeige
+    SELECTPOSTSLATESTTITLE: Neueste Artikel
+    SELECTPOSTSSPECIFICTITLE: Spezifische Artikel
+    CATEGORIESTITLE: Filtern nach Kategorie
+    TAGSTITLE: Filtern nach Schlagwort
+    SHOWLATESTTITLE: Zeige die neuesten X Artikel
+    POSTSTITLE: Artikel
+    POSTSHEADERTITLE: Angezeigte Artikel
+    BlockType: Blog Artikel
+  Syntro\ElementalBootstrapBlocks\Element\BlogContentBlock:
+    BlockType: Inhalt
+  Syntro\ElementalBootstrapBlocks\Element\BlogImageBlock:
+    BlockType: Bild

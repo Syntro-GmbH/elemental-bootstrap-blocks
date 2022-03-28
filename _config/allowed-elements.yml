@@ -1,0 +1,34 @@
+---
+Name: elemental-bootstrap-blocks-allowed-elements
+---
+Page:
+  allowed_elements:
+    - DNADesign\Elemental\Models\ElementContent
+    - Syntro\ElementalBootstrapBlocks\Element\AccordionBlock
+    - Syntro\ElementalBootstrapBlocks\Element\BreadcrumbsBlock
+    - Syntro\ElementalBootstrapBlocks\Element\CardDeckBlock
+    - Syntro\ElementalBootstrapBlocks\Element\CarouselBlock
+    - Syntro\ElementalBootstrapBlocks\Element\ContentImageSplitBlock
+    - Syntro\ElementalBootstrapBlocks\Element\CustomerReviewBlock
+    - Syntro\ElementalBootstrapBlocks\Element\EmployeesBlock
+    - Syntro\ElementalBootstrapBlocks\Element\GalleryBlock
+    - Syntro\ElementalBootstrapBlocks\Element\HeroBlock
+    - Syntro\ElementalBootstrapBlocks\Element\ImageBlock
+    - Syntro\ElementalBootstrapBlocks\Element\MapBlock
+    - Syntro\ElementalBootstrapBlocks\Element\TabSetBlock
+
+---
+Name: elemental-bootstrap-blocks-allowed-elements-blog
+Only:
+  moduleexists: silverstripe/blog
+After:
+  - '#elemental-bootstrap-blocks-allowed-elements'
+---
+Page:
+  allowed_elements:
+    - Syntro\ElementalBootstrapBlocks\Element\BlogPostReelBlock
+SilverStripe\Blog\Model\BlogPost:
+  stop_element_inheritance: true
+  allowed_elements:
+    - Syntro\ElementalBootstrapBlocks\Element\BlogContentBlock
+    - Syntro\ElementalBootstrapBlocks\Element\BlogImageBlock
