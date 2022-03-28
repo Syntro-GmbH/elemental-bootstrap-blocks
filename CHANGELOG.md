@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="1.2.1"></a>
+## [1.2.1] - 2022-03-28
+### 🐞 Fixed
+- blog module can be absent ([#7](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/7))
+
+
 <a name="1.2.0"></a>
 ## [1.2.0] - 2022-03-28
 ### 🍰 Added
@@ -49,7 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - phpcs
 
 
-[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.1...HEAD
+[1.2.1]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.0.2...1.1.0
