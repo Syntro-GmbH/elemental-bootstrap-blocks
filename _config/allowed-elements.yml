@@ -30,5 +30,5 @@ Page:
 SilverStripe\Blog\Model\BlogPost:
   stop_element_inheritance: true
   allowed_elements:
-    - DNADesign\Elemental\Models\ElementContent
+    - Syntro\ElementalBootstrapBlocks\Element\BlogContentBlock
     - Syntro\ElementalBootstrapBlocks\Element\BlogImageBlock
