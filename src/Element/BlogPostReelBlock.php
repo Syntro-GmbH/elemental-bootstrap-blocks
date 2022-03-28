@@ -1,7 +1,7 @@
 <?php
 namespace Syntro\ElementalBootstrapBlocks\Element;
 
-use SilverStripe\Forms\OptionSetField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Forms\HeaderField;
@@ -113,7 +113,7 @@ class BlogPostReelBlock extends BaseElement
 
         $fields->addFieldToTab(
             'Root.Main',
-            OptionSetField::create(
+            OptionsetField::create(
                 'SelectPosts',
                 _t(__CLASS__ . '.SELECTPOSTSTITLE', 'Show'),
                 [
@@ -199,10 +199,10 @@ class BlogPostReelBlock extends BaseElement
             case 'latest':
                 $posts = BlogPost::get();
                 if ($this->Tags()->count() > 0) {
-                    $posts = $posts->filter('Tags.ID', $this->Tags()->map('ID','ID')->keys());
+                    $posts = $posts->filter('Tags.ID', $this->Tags()->map('ID', 'ID')->keys());
                 }
                 if ($this->Categories()->count() > 0) {
-                    $posts = $posts->filter('Categories.ID', $this->Categories()->map('ID','ID')->keys());
+                    $posts = $posts->filter('Categories.ID', $this->Categories()->map('ID', 'ID')->keys());
                 }
                 return $posts->limit($this->ShowLatest);
             default:
