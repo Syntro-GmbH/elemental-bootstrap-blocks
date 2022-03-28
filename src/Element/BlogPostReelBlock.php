@@ -88,14 +88,15 @@ class BlogPostReelBlock extends BaseElement
     ];
 
     /**
-     * Many_many relationship
+     * Many_many relationship - This is done via config to allow for the blog
+     * module to be not installed
      * @var array
      */
-    private static $many_many = [
-        'Categories' => BlogCategory::class,
-        'Tags' => BlogTag::class,
-        'Posts' => BlogPost::class,
-    ];
+    // private static $many_many = [
+    //     'Categories' => BlogCategory::class,
+    //     'Tags' => BlogTag::class,
+    //     'Posts' => BlogPost::class,
+    // ];
 
     /**
      * CMS Fields

@@ -3,6 +3,11 @@ Name: elemental-bootstrap-blocks-blog
 Only:
   moduleexists: silverstripe/blog
 ---
+Syntro\ElementalBootstrapBlocks\Element\BlogPostReelBlock:
+  many_many:
+    Categories: Silverstripe\Blog\Model\BlogCategory
+    Tags: Silverstripe\Blog\Model\BlogTag
+    Posts: Silverstripe\Blog\Model\BlogPost
 Silverstripe\Blog\Model\BlogPost:
   belongs_many_many:
     FeaturedBlogPostReels: Syntro\ElementalBootstrapBlocks\Element\BlogPostReelBlock
