@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="1.2.0"></a>
+## [1.2.0] - 2022-03-28
+### 🍰 Added
+- blogblock docs
+- blocks to support the silverstripe blog module ([#6](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/6))
+
+
 <a name="1.1.1"></a>
 ## [1.1.1] - 2022-03-17
 ### 🐞 Fixed
@@ -42,7 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - phpcs
 
 
-[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.1.1...HEAD
+[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.0.1...1.0.2
