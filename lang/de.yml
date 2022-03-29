@@ -87,6 +87,12 @@ de:
   Syntro\ElementalBootstrapBlocks\Element\BreadcrumbsBlock:
     BlockType: Brotkrumen
   Syntro\ElementalBootstrapBlocks\Element\MapBlock:
+    AddressToggleTitle: Kontaktinformationen
+    AddressAddressTitle: Adresse
+    AddressPhoneTitle: Telefonnummer
+    AddressEmailTitle: E-Mail
+    AddressToggleInfo:
+      Füge Adressinformationen ein. Lass das jeweilige feld leer, um es nicht anzuzeigen.
     MarkerTabLabel: Marker ({count})
     MapSettingsTabLabel: Karteneinstellungen
     ZOOMTITLE: Standard Zoom-Level

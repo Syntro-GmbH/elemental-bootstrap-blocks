@@ -148,7 +148,7 @@ class MapBlock extends BaseElement
             'addInfoWrap',
             _t(__CLASS__ . '.AddressToggleTitle', 'Address Information'),
             [
-                TextField::create('AddAdress', _t(__CLASS__ . '.AddressAdressTitle', 'Address')),
+                TextField::create('AddAddress', _t(__CLASS__ . '.AddressAddressTitle', 'Address')),
                 TextField::create('AddPhone', _t(__CLASS__ . '.AddressPhoneTitle', 'Phone')),
                 EmailField::create('AddEmail', _t(__CLASS__ . '.AddressEmailTitle', 'Email')),
                 LiteralField::create('addInfoInfo', '<div class="p-2">'._t(__CLASS__ . '.AddressToggleInfo', 'Add additional address information. Leave the fields empty to hide them.').'</div>'),
