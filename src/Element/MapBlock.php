@@ -167,14 +167,8 @@ class MapBlock extends BaseElement
             /** @var GridField $griditems */
             $griditems = $fields->fieldByName('Root.Markers.Markers');
             $griditems->setConfig(GridFieldConfig_ElementalChildren::create());
-            $fields->removeByName([
-                'Markers',
-                'Root.Markers.Markers'
-            ]);
-            $fields->addFieldToTab(
-                'Root.Main',
-                $griditems
-            );
+            $fields->fieldByName('Root.Markers')
+                ->setTitle(_t(__CLASS__ . '.MarkerTabLabel', 'Marker ({count})', ['count' => $this->Markers()->count()]));
         } else {
             $fields->removeByName([
                 'Markers',

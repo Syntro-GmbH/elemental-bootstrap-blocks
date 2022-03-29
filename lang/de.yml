@@ -87,6 +87,7 @@ de:
   Syntro\ElementalBootstrapBlocks\Element\BreadcrumbsBlock:
     BlockType: Brotkrumen
   Syntro\ElementalBootstrapBlocks\Element\MapBlock:
+    MarkerTabLabel: Marker ({count})
     MapSettingsTabLabel: Karteneinstellungen
     ZOOMTITLE: Standard Zoom-Level
     STYLETITLE: Kartenstil
