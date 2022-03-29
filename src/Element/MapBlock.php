@@ -1,10 +1,14 @@
 <?php
 namespace Syntro\ElementalBootstrapBlocks\Element;
 
+use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\ToggleCompositeField;
+use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
 use DNADesign\Elemental\Models\BaseElement;
@@ -88,7 +92,10 @@ class MapBlock extends BaseElement
         'Content' => 'HTMLText',
         'DefaultZoom' => 'Int',
         'MapStyle' => 'Text',
-        'FitToMarkers' => 'Boolean'
+        'FitToMarkers' => 'Boolean',
+        'AddAddress' => 'Varchar',
+        'AddPhone' => 'Varchar',
+        'AddEmail' => 'Varchar',
     ];
 
     /**
@@ -130,6 +137,27 @@ class MapBlock extends BaseElement
     {
         $fields = parent::getCMSFields();
 
+        // Add Additional fields
+        // ---------------------
+        $fields->removeByName([
+            'AddAddress',
+            'AddPhone',
+            'AddEmail',
+        ]);
+        $addressWrapper = ToggleCompositeField::create(
+            'addInfoWrap',
+            _t(__CLASS__ . '.AddressToggleTitle', 'Address Information'),
+            [
+                TextField::create('AddAdress', _t(__CLASS__ . '.AddressAdressTitle', 'Address')),
+                TextField::create('AddPhone', _t(__CLASS__ . '.AddressPhoneTitle', 'Phone')),
+                EmailField::create('AddEmail', _t(__CLASS__ . '.AddressEmailTitle', 'Email')),
+                LiteralField::create('addInfoInfo', '<div class="p-2">'._t(__CLASS__ . '.AddressToggleInfo', 'Add additional address information. Leave the fields empty to hide them.').'</div>'),
+            ]
+        );
+        $fields->insertAfter('Content', $addressWrapper);
+
+        // Add Map Setup fields
+        // --------------------
         $MapSettingsTab = $fields->findOrMakeTab('Root.MapSettings');
         $fields->removeByName([
             'MapSettings',
