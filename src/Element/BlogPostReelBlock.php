@@ -13,6 +13,7 @@ use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Core\ClassInfo;
 use SilverStripe\Blog\Model\BlogCategory;
 use SilverStripe\Blog\Model\BlogTag;
 use SilverStripe\Blog\Model\BlogPost;
@@ -126,51 +127,54 @@ class BlogPostReelBlock extends BaseElement
         );
 
         // Add Categories & Tags filter
-        $fields->addFieldsToTab(
-            'Root.Main',
-            [
-                $categoriesField = ListboxField::create(
-                    'Categories',
-                    _t(__CLASS__ . '.CATEGORIESTITLE', 'Filter by Categories'),
-                    BlogCategory::get(),
-                    $this->Categories(),
-                ),
-                $tagsField = ListboxField::create(
-                    'Tags',
-                    _t(__CLASS__ . '.TAGSTITLE', 'Filter by Tags'),
-                    BlogTag::get(),
-                    $this->Tags(),
-                )
-            ]
-        );
-        $categoriesField->hideUnless('SelectPosts')->isEqualTo('latest');
-        $tagsField->hideUnless('SelectPosts')->isEqualTo('latest');
-        /** @var NumericField */
-        $numField = $fields->fieldByName('Root.Main.ShowLatest');
-        $numField->hideUnless('SelectPosts')->isEqualTo('latest');
-        $numField->setTitle(_t(__CLASS__ . '.SHOWLATESTTITLE', 'Show latest X Posts'));
+        if (ClassInfo::exists(BlogCategory::class) && ClassInfo::exists(BlogTag::class)) {
+            $fields->addFieldsToTab(
+                'Root.Main',
+                [
+                    $categoriesField = ListboxField::create(
+                        'Categories',
+                        _t(__CLASS__ . '.CATEGORIESTITLE', 'Filter by Categories'),
+                        BlogCategory::get(),
+                        $this->Categories(),
+                    ),
+                    $tagsField = ListboxField::create(
+                        'Tags',
+                        _t(__CLASS__ . '.TAGSTITLE', 'Filter by Tags'),
+                        BlogTag::get(),
+                        $this->Tags(),
+                    )
+                ]
+            );
+            $categoriesField->hideUnless('SelectPosts')->isEqualTo('latest');
+            $tagsField->hideUnless('SelectPosts')->isEqualTo('latest');
+            /** @var NumericField */
+            $numField = $fields->fieldByName('Root.Main.ShowLatest');
+            $numField->hideUnless('SelectPosts')->isEqualTo('latest');
+            $numField->setTitle(_t(__CLASS__ . '.SHOWLATESTTITLE', 'Show latest X Posts'));
 
 
-        // Add Specific posts fields
-        $postsField = GridField::create(
-            'Posts',
-            _t(__CLASS__ . '.POSTSTITLE', 'Posts'),
-            $this->Posts(),
-            $postsConfig = GridFieldConfig_RelationEditor::create()
-        );
-        $postsConfig->removeComponentsByType(GridFieldAddNewButton::class);
-        $fields->addFieldsToTab(
-            'Root.Main',
-            [
-                $postsTitle = Wrapper::create(HeaderField::create(
-                    'titleSpecific',
-                    _t(__CLASS__ . '.POSTSHEADERTITLE', 'Posts Shown in the Reel')
-                )),
-                $postsWrapper = Wrapper::create($postsField)
-            ]
-        );
-        $postsTitle->hideUnless('SelectPosts')->isEqualTo('specific');
-        $postsWrapper->hideUnless('SelectPosts')->isEqualTo('specific');
+            // Add Specific posts fields
+            $postsField = GridField::create(
+                'Posts',
+                _t(__CLASS__ . '.POSTSTITLE', 'Posts'),
+                $this->Posts(),
+                $postsConfig = GridFieldConfig_RelationEditor::create()
+            );
+            $postsConfig->removeComponentsByType(GridFieldAddNewButton::class);
+            $fields->addFieldsToTab(
+                'Root.Main',
+                [
+                    $postsTitle = Wrapper::create(HeaderField::create(
+                        'titleSpecific',
+                        _t(__CLASS__ . '.POSTSHEADERTITLE', 'Posts Shown in the Reel')
+                    )),
+                    $postsWrapper = Wrapper::create($postsField)
+                ]
+            );
+            $postsTitle->hideUnless('SelectPosts')->isEqualTo('specific');
+            $postsWrapper->hideUnless('SelectPosts')->isEqualTo('specific');
+        }
+
 
 
         return $fields;
