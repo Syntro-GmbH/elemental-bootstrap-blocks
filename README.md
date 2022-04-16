@@ -28,3 +28,4 @@ See [the docs](docs/BlogBlocks.md).
 This module supplies some extensions to add functionality to blocks where needed.
 
 * [UseCarouselExtension](docs/extensions/UseCarouselExtension.md)
+* [OptionalContentExtension](docs/extensions/OptionalContentExtension.md)
