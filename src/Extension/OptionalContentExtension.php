@@ -47,7 +47,7 @@ class OptionalContentExtension extends DataExtension
             $contentField = HtmlEditorField::create(
                 'OptionalContent',
                 _t(__CLASS__ . '.OPTIONALCONTENT', 'Content')
-            )
+            );
             $fields->insertAfter('Title', $contentField);
         }
         return $fields;
