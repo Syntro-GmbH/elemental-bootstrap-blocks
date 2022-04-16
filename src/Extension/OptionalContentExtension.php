@@ -2,7 +2,7 @@
 
 namespace Syntro\ElementalBootstrapBlocks\Extension;
 
-use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
@@ -44,7 +44,7 @@ class OptionalContentExtension extends DataExtension
         $owner = $this->getOwner();
         $showInStyles = $owner->config()->get('enable_content_for_styles');
         if (!is_null($showInStyles) && in_array($owner->Style, $showInStyles)) {
-            $contentField = HtmlEditorField::create(
+            $contentField = HTMLEditorField::create(
                 'OptionalContent',
                 _t(__CLASS__ . '.OPTIONALCONTENT', 'Content')
             );
