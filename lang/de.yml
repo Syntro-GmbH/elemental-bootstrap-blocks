@@ -5,6 +5,8 @@ de:
     TOGGLETITLE: Stil
   Syntro\ElementalBootstrapBlocks\Extension\SplitRatioExtension:
     FIELDTITLE: Spaltengrössenverhältnis
+  Syntro\ElementalBootstrapBlocks\Extension\OptionalContentExtension:
+    OPTIONALCONTENT: Inhalt
   Syntro\ElementalBootstrapBlocks\Extension\SpacingExtension:
     SPACINGBEFORETITLE: 'Abstand zum vorherigen Block'
     SPACINGAFTERTITLE: 'Abstand zum nächsten Block'
