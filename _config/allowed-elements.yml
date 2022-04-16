@@ -14,6 +14,7 @@ Page:
     - Syntro\ElementalBootstrapBlocks\Element\GalleryBlock
     - Syntro\ElementalBootstrapBlocks\Element\HeroBlock
     - Syntro\ElementalBootstrapBlocks\Element\ImageBlock
+    - Syntro\ElementalBootstrapBlocks\Element\JumbotronBlock
     - Syntro\ElementalBootstrapBlocks\Element\MapBlock
     - Syntro\ElementalBootstrapBlocks\Element\TabSetBlock
 
