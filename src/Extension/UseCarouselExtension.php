@@ -33,6 +33,11 @@ class UseCarouselExtension extends DataExtension
     ];
 
     /**
+     * @config
+     */
+    private static $disable_carousel_for_styles = [];
+
+    /**
      * updateCMSFields
      *
      * @param  FieldList $fields the original fields
@@ -44,24 +49,28 @@ class UseCarouselExtension extends DataExtension
             'UseCarousel',
             'UseCarouselAutoplay'
         ]);
-        $carouselField = CheckboxField::create(
-            'UseCarousel',
-            _t(__CLASS__ . '.USECAROUSEL', 'Display as Carousel')
-        );
-        $carouselField->setDescription(
-            _t(__CLASS__ . '.USECAROUSELDESC', 'If enabled, cards that would be displayed in a new row are displayed in a carousel.')
-        );
-        $fields->insertAfter('Title', $carouselField);
+        $owner = $this->getOwner();
+        $hiddenInStyles = $owner->config()->get('disable_carousel_for_styles');
+        if (is_null($hiddenInStyles) || !in_array($owner->Style, $hiddenInStyles)) {
+            $carouselField = CheckboxField::create(
+                'UseCarousel',
+                _t(__CLASS__ . '.USECAROUSEL', 'Display as Carousel')
+            );
+            $carouselField->setDescription(
+                _t(__CLASS__ . '.USECAROUSELDESC', 'If enabled, cards that would be displayed in a new row are displayed in a carousel.')
+            );
+            $fields->insertAfter('Title', $carouselField);
 
-        $autoplayField = CheckboxField::create(
-            'UseCarouselAutoplay',
-            _t(__CLASS__ . '.AUTOPLAY', 'Enable Autoplay')
-        );
-        $autoplayField->setDescription(
-            _t(__CLASS__ . '.AUTOPLAYDESC', 'If enabled, the carousel will automatically rotate.')
-        );
-        $autoplayField->displayIf('UseCarousel')->isChecked();
-        $fields->insertAfter('UseCarousel', $autoplayField);
+            $autoplayField = CheckboxField::create(
+                'UseCarouselAutoplay',
+                _t(__CLASS__ . '.AUTOPLAY', 'Enable Autoplay')
+            );
+            $autoplayField->setDescription(
+                _t(__CLASS__ . '.AUTOPLAYDESC', 'If enabled, the carousel will automatically rotate.')
+            );
+            $autoplayField->displayIf('UseCarousel')->isChecked();
+            $fields->insertAfter('UseCarousel', $autoplayField);
+        }
         return $fields;
     }
 }
