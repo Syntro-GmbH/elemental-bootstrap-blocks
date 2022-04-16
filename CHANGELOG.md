@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="1.2.4"></a>
+## [1.2.4] - 2022-04-16
+### 🍰 Added
+- Jumbotron Block ([#11](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/11))
+- optional content field for split designs ([#10](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/10))
+- Carousel option can be disabled for specific styles ([#9](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/9))
+
+
 <a name="1.2.3"></a>
 ## [1.2.3] - 2022-03-29
 ### 🐞 Fixed
@@ -70,7 +78,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - phpcs
 
 
-[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.3...HEAD
+[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.4...HEAD
+[1.2.4]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.3...1.2.4
 [1.2.3]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.2...1.2.3
 [1.2.2]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.0...1.2.1
