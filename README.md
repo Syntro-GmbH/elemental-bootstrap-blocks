@@ -17,6 +17,7 @@ They lack any template, so you need to provide the following templates in the
 * [GalleryBlock](src/Element/GalleryBlock.php)
 * [HeroBlock](src/Element/HeroBlock.php)
 * [ImageBlock](src/Element/ImageBlock.php)
+* [JumbotronBlock](src/Element/JumbotronBlock.php)
 * [MapBlock](src/Element/MapBlock.php) ([docs](docs/MapBlock.md))
 * [TabSetBlock](src/Element/TabSetBlock.php)
 
