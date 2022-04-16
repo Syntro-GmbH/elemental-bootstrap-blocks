@@ -1,5 +1,6 @@
 # Elemental Bootstrap Blocks
 
+## Blocks
 This Repository provides a set of base bootstrap blocks which are used in a
 silverstripe-elemental setup.
 
@@ -19,5 +20,11 @@ They lack any template, so you need to provide the following templates in the
 * [MapBlock](src/Element/MapBlock.php) ([docs](docs/MapBlock.md))
 * [TabSetBlock](src/Element/TabSetBlock.php)
 
-## Blog
+### Blog
 See [the docs](docs/BlogBlocks.md).
+
+
+## Extensions
+This module supplies some extensions to add functionality to blocks where needed.
+
+* [UseCarouselExtension](docs/extensions/UseCarouselExtension.md)
