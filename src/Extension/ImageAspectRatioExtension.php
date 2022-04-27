@@ -193,7 +193,7 @@ class ImageAspectRatioExtension extends DataExtension
      * @param  ValidationResult ValidationResult $result original result
      * @return ValidationResult
      */
-    public function validate(ValidationResult $result)
+    public function validate($result)
     {
         $owner = $this->getOwner();
         if ($owner->ImageAspectRatio == 'custom') {
