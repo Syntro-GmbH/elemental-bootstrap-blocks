@@ -190,6 +190,7 @@ class ImageAspectRatioExtension extends DataExtension
     /**
      * validate
      *
+     * @param  ValidationResult ValidationResult $result original result
      * @return ValidationResult
      */
     public function validate(ValidationResult $result)
