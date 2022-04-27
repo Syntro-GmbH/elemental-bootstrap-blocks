@@ -1,4 +1,22 @@
 de:
+  Syntro\ElementalBootstrapBlocks\Extension\ImageAspectRatioExtension:
+    FieldAspectRatioOptionOriginal: 'Original'
+    FieldAspectRatioOptionCustom: 'Benutzerdefiniert'
+    FieldAspectRatioTitle: 'Seitenverhältnis'
+    FieldImageCropMethodTitle: 'Zuschnitt'
+    FieldImageCropMethodOptionFill: 'Ausfüllen'
+    FieldImageCropMethodOptionPad: 'Auffüllen'
+    FieldImageOrientationTitle: 'Orientierung'
+    FieldImageOrientationOptionLandscape: 'Quer'
+    FieldImageOrientationOptionPortrait: 'Hoch'
+    FieldImageOrientationDescription: 'Diese Option dreht nicht das Bild, sondern legt die Ausrichtung der längeren Kante fest.'
+    FieldImageCustomHeightTitle: 'Höhe'
+    FieldImageCustomWidthTitle: 'Breite'
+    FieldImageCustomRatioHolderTitle: 'Seitenverhältnis'
+    FieldImageCustomRatioHolderDescription: 'Ein Wert wie <code>1 x 7</code> ist gültig. Sie setzen ein Seitenverhältnis, nicht die Auflösung fest.'
+    ImageAspectRatioTabLabel: 'Bildformat'
+    ErrorHeightNotSet: 'Bitte geben Sie eine gültige Höhe ein, diese muss größer als 0 sein.'
+    ErrorWidthNotSet: 'Bitte geben Sie eine gültige Breite ein, diese muss größer als 0 sein.'
   Syntro\ElementalBootstrapBlocks\Extension\MultiHolderExtension:
     HOLDERSTYLE: Hintergrund-Stilvariation
     DEFAULT: Standard

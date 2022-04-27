@@ -2,11 +2,16 @@
 
 namespace Syntro\ElementalBootstrapBlocks\Extension;
 
+use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Core\Config\Configurable;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 /**
  * Adds helper fields to an element which allow the user to change
@@ -27,6 +32,8 @@ class ImageAspectRatioExtension extends DataExtension
         'ImageAspectRatio' => 'Varchar',
         'ImageCropMethod' => 'Enum("fill,pad", "fill")',
         'ImageOrientation' => 'Enum("landscape,portrait", "landscape")',
+        'ImageAspectCustomHeightRatio' => 'Int',
+        'ImageAspectCustomWidthRatio' => 'Int',
     ];
 
     /**
@@ -36,7 +43,9 @@ class ImageAspectRatioExtension extends DataExtension
     private static $defaults = [
         'ImageAspectRatio' => 'original',
         'ImageCropMethod' => 'fill',
-        'ImageOrientation' => 'landscape'
+        'ImageOrientation' => 'landscape',
+        'ImageAspectCustomHeightRatio' => 1,
+        'ImageAspectCustomWidthRatio' => 1
     ];
 
     /**
@@ -54,21 +63,82 @@ class ImageAspectRatioExtension extends DataExtension
         '16 x 10' => [16, 10],
     ];
 
+    /**
+     * getAspectRatioField
+     *
+     * @return DropdownField
+     */
     public function getAspectRatioField()
     {
         $options = [
-            'original' => 'Original'
+            'original' => _t(__CLASS__ . '.FieldAspectRatioOptionOriginal', 'Original')
         ];
         foreach ($this->config()->get('available_aspect_ratios') as $key => $value) {
             $options[$key] = $key;
         }
-        $options['custom'] = 'Custom';
+        $options['custom'] = _t(__CLASS__ . '.FieldAspectRatioOptionCustom', 'Custom');
         $field = DropdownField::create(
             'ImageAspectRatio',
-            'Aspect Ratio',
+            _t(__CLASS__ . '.FieldAspectRatioTitle', 'Aspect Ratio'),
             $options
         );
         return $field;
+    }
+
+    /**
+     * getCropMethodField
+     *
+     * @return OptionsetField
+     */
+    public function getCropMethodField()
+    {
+        $field = OptionsetField::create(
+            'ImageCropMethod',
+            _t(__CLASS__ . '.FieldImageCropMethodTitle', 'Crop Method'),
+            [
+                'fill' => _t(__CLASS__ . '.FieldImageCropMethodOptionFill', 'Fill'),
+                'pad' => _t(__CLASS__ . '.FieldImageCropMethodOptionPad', 'Pad'),
+            ]
+        );
+        return $field;
+    }
+
+    /**
+     * getImageOrientationField
+     *
+     * @return OptionsetField
+     */
+    public function getImageOrientationField()
+    {
+        $field = OptionsetField::create(
+            'ImageOrientation',
+            _t(__CLASS__ . '.FieldImageOrientationTitle', 'Orientation'),
+            [
+                'landscape' => _t(__CLASS__ . '.FieldImageOrientationOptionLandscape', 'Landscape'),
+                'portrait' => _t(__CLASS__ . '.FieldImageOrientationOptionPortrait', 'Portrait'),
+            ]
+        )->setDescription(_t(__CLASS__ . '.FieldImageOrientationDescription', 'This option does not rotate the image, but sets the orientation of the longer edge.'));
+        return $field;
+    }
+
+    /**
+     * getCustomAspectRatioField
+     *
+     * @return FieldGroup
+     */
+    public function getCustomAspectRatioField()
+    {
+        $heightField = NumericField::create(
+            'ImageAspectCustomHeightRatio',
+            _t(__CLASS__ . '.FieldImageCustomHeightTitle', 'Height')
+        );
+        $widthField = NumericField::create(
+            'ImageAspectCustomWidthRatio',
+            _t(__CLASS__ . '.FieldImageCustomWidthTitle', 'Width')
+        );
+        return FieldGroup::create($heightField, $widthField)
+            ->setTitle(_t(__CLASS__ . '.FieldImageCustomRatioHolderTitle', 'Aspect Ratio'))
+            ->setDescription(_t(__CLASS__ . '.FieldImageCustomRatioHolderDescription', 'a value like <code>1 x 7</code> is valid. You are setting a ratio, not pixel size.'));
     }
 
     /**
@@ -83,13 +153,56 @@ class ImageAspectRatioExtension extends DataExtension
             'ImageAspectRatio',
             'ImageCropMethod',
             'ImageOrientation',
+            'ImageAspectCustomHeightRatio',
+            'ImageAspectCustomWidthRatio',
         ]);
 
-        $fields->addFieldToTab(
-            'Root.ImageSettings',
-            $this->getAspectRatioField()
-        );
+        // Add Image Setup Tab
+        // -------------------
+        $MapSettingsTab = $fields->findOrMakeTab('Root.ImageAspectRatio');
+        $fields->removeByName([
+            'ImageAspectRatio',
+        ]);
+        $fields->insertBefore('Settings', $MapSettingsTab);
+        // Rename the "MapSettings" tab
+        $fields->fieldByName('Root.ImageAspectRatio')
+            ->setTitle(_t(__CLASS__ . '.ImageAspectRatioTabLabel', 'Image Aspect Ratio'));
 
+        // Add Image Fields
+        // -------------------
+        $fields->addFieldsToTab(
+            'Root.ImageAspectRatio',
+            [
+                $this->getAspectRatioField(),
+                $cropMethodField = Wrapper::create($this->getCropMethodField()),
+                $orientationField = Wrapper::create($this->getImageOrientationField()),
+                $customRatioField = Wrapper::create($this->getCustomAspectRatioField())
+            ]
+        );
+        $cropMethodField->displayUnless('ImageAspectRatio')->isEqualTo('original');
+        $orientationField
+            ->displayUnless('ImageAspectRatio')->isEqualTo('original')
+            ->orIf('ImageAspectRatio')->isEqualTo('custom');
+        $customRatioField->displayIf('ImageAspectRatio')->isEqualTo('custom');
         return $fields;
+    }
+
+    /**
+     * validate
+     *
+     * @return ValidationResult
+     */
+    public function validate(ValidationResult $result)
+    {
+        $owner = $this->getOwner();
+        if ($owner->ImageAspectRatio == 'custom') {
+            if (is_null($owner->ImageAspectCustomHeightRatio) || $owner->ImageAspectCustomHeightRatio <= 0) {
+                $result->addFieldError('ImageAspectCustomHeightRatio', _t(__CLASS__ . '.ErrorHeightNotSet', 'Please enter a valid height which must be greater than 0.'));
+            }
+            if (is_null($owner->ImageAspectCustomWidthRatio) || $owner->ImageAspectCustomWidthRatio <= 0) {
+                $result->addFieldError('ImageAspectCustomWidthRatio', _t(__CLASS__ . '.ErrorWidthNotSet', 'Please enter a valid width which must be greater than 0.'));
+            }
+        }
+        return $result;
     }
 }
