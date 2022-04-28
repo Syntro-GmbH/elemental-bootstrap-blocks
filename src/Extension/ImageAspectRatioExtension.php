@@ -97,7 +97,7 @@ class ImageAspectRatioExtension extends DataExtension
             _t(__CLASS__ . '.FieldImageCropMethodTitle', 'Crop Method'),
             [
                 'fill' => _t(__CLASS__ . '.FieldImageCropMethodOptionFill', 'Fill'),
-                'pad' => _t(__CLASS__ . '.FieldImageCropMethodOptionPad', 'Pad'),
+                // 'pad' => _t(__CLASS__ . '.FieldImageCropMethodOptionPad', 'Pad'),
             ]
         );
         return $field;
