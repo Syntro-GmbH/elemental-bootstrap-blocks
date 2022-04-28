@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="1.2.5"></a>
+## [1.2.5] - 2022-04-28
+### 🍰 Added
+- Image aspect ratio extension for things which render Images ([#12](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/12))
+
+
 <a name="1.2.4"></a>
 ## [1.2.4] - 2022-04-16
 ### 🍰 Added
@@ -78,7 +84,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - phpcs
 
 
-[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.4...HEAD
+[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.5...HEAD
+[1.2.5]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.4...1.2.5
 [1.2.4]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.3...1.2.4
 [1.2.3]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.2...1.2.3
 [1.2.2]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.1...1.2.2
