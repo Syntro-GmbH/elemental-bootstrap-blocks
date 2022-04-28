@@ -12,6 +12,7 @@ use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Assets\Image;
+use SilverStripe\Assets\Storage\AssetContainer;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 /**
@@ -191,10 +192,10 @@ class ImageAspectRatioExtension extends DataExtension
     /**
      * validate
      *
-     * @param  ValidationResult ValidationResult $result original result
+     * @param  ValidationResult $result original result
      * @return ValidationResult
      */
-    public function validate($result)
+    public function validate(ValidationResult $result)
     {
         $owner = $this->getOwner();
         if ($owner->ImageAspectRatio == 'custom') {
@@ -213,7 +214,7 @@ class ImageAspectRatioExtension extends DataExtension
      * ratio
      *
      * @param  Image $image The Image to update
-     * @return Image
+     * @return AssetContainer
      */
     public function updateImageAspectRatio($image)
     {
@@ -233,7 +234,6 @@ class ImageAspectRatioExtension extends DataExtension
             $aspectRatio = $aspectRatios[$owner->ImageAspectRatio];
             if (count($aspectRatio) != 2) {
                 throw new \ValueError("Aspect ratios must be an array with 2 values.", 1);
-
             }
             $hr = $owner->ImageOrientation == 'landscape' ? min($aspectRatio) : max($aspectRatio);
             $wr = $owner->ImageOrientation == 'landscape' ? max($aspectRatio) : min($aspectRatio);
@@ -241,7 +241,7 @@ class ImageAspectRatioExtension extends DataExtension
 
         list($newWidth, $newHeight) = $this->newWidthHeightFromAspectRatio($wr, $hr, $image);
 
-        return $image->Fill($newWidth,$newHeight);
+        return $image->Fill($newWidth, $newHeight);
     }
 
     /**
@@ -251,7 +251,7 @@ class ImageAspectRatioExtension extends DataExtension
      * @param  int   $widthRatio  the desired width ratio as in w x h
      * @param  int   $heightRatio the desired height ratio as in w x h
      * @param  Image $image       the Image to update
-     * @return Image
+     * @return array<int>
      */
     public function newWidthHeightFromAspectRatio($widthRatio, $heightRatio, $image)
     {
@@ -269,6 +269,6 @@ class ImageAspectRatioExtension extends DataExtension
             $newWidth = min([$originalWidth, $originalHeight]);
             $newHeight = $newWidth;
         }
-        return [$newWidth, $newHeight];
+        return [intval($newWidth), intval($newHeight)];
     }
 }
