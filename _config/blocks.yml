@@ -12,3 +12,6 @@ DNADesign\Elemental\Models\BaseElement:
     - Syntro\ElementalBootstrapBlocks\Extension\MultiHolderExtension
     - Syntro\ElementalBootstrapBlocks\Extension\SpacingExtension
     - Syntro\ElementalBootstrapBlocks\Extension\TranslatedStylesExtension
+Syntro\ElementalBootstrapBlocks\Element\CardDeckBlock:
+  extensions:
+    - Syntro\ElementalBootstrapBlocks\Extension\ImageAspectRatioExtension
