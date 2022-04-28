@@ -11,6 +11,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Core\Config\Configurable;
+use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 /**
@@ -205,5 +206,69 @@ class ImageAspectRatioExtension extends DataExtension
             }
         }
         return $result;
+    }
+
+    /**
+     * updateImageAspectRatio - updates the given image to fit the desired aspect
+     * ratio
+     *
+     * @param  Image $image The Image to update
+     * @return Image
+     */
+    public function updateImageAspectRatio($image)
+    {
+        $owner = $this->getOwner();
+        $hr = 1;
+        $wr = 1;
+        if (!$owner->ImageAspectRatio || $owner->ImageAspectRatio == 'original') {
+            return $image;
+        } elseif ($owner->ImageAspectRatio == 'custom') {
+            $hr = $owner->ImageAspectCustomHeightRatio;
+            $wr = $owner->ImageAspectCustomWidthRatio;
+        } else {
+            $aspectRatios = $owner->config()->get('available_aspect_ratios');
+            if (!isset($aspectRatios[$owner->ImageAspectRatio])) {
+                return $image;
+            }
+            $aspectRatio = $aspectRatios[$owner->ImageAspectRatio];
+            if (count($aspectRatio) != 2) {
+                throw new \ValueError("Aspect ratios must be an array with 2 values.", 1);
+
+            }
+            $hr = $owner->ImageOrientation == 'landscape' ? min($aspectRatio) : max($aspectRatio);
+            $wr = $owner->ImageOrientation == 'landscape' ? max($aspectRatio) : min($aspectRatio);
+        }
+
+        list($newWidth, $newHeight) = $this->newWidthHeightFromAspectRatio($wr, $hr, $image);
+
+        return $image->Fill($newWidth,$newHeight);
+    }
+
+    /**
+     * newWidthHeightFromAspectRatio - calculates the new width and height for
+     * an image based on a given aspect ratio.
+     *
+     * @param  int   $widthRatio  the desired width ratio as in w x h
+     * @param  int   $heightRatio the desired height ratio as in w x h
+     * @param  Image $image       the Image to update
+     * @return Image
+     */
+    public function newWidthHeightFromAspectRatio($widthRatio, $heightRatio, $image)
+    {
+        $newWidth = 1;
+        $newHeight = 1;
+        $originalWidth = $image->getWidth();
+        $originalHeight = $image->getHeight();
+        if ($heightRatio < $widthRatio) {
+            $newHeight = min([$originalWidth, $originalHeight]);
+            $newWidth = ($newHeight / $heightRatio) * $widthRatio;
+        } elseif ($heightRatio > $widthRatio) {
+            $newWidth = min([$originalWidth, $originalHeight]);
+            $newHeight = ($newWidth / $widthRatio) * $heightRatio;
+        } else {
+            $newWidth = min([$originalWidth, $originalHeight]);
+            $newHeight = $newWidth;
+        }
+        return [$newWidth, $newHeight];
     }
 }

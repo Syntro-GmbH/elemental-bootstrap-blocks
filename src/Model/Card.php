@@ -107,4 +107,14 @@ class Card extends BaseItem
 
         return $fields;
     }
+
+    /**
+     * getImageWithRatio - get the image wit the correct ratio applied
+     *
+     * @return Image
+     */
+    public function getImageWithRatio()
+    {
+        return $this->Section->updateImageAspectRatio($this->Image);
+    }
 }
