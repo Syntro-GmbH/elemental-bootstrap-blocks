@@ -8,6 +8,7 @@ Page:
     - Syntro\ElementalBootstrapBlocks\Element\BreadcrumbsBlock
     - Syntro\ElementalBootstrapBlocks\Element\CardDeckBlock
     - Syntro\ElementalBootstrapBlocks\Element\CarouselBlock
+    - Syntro\ElementalBootstrapBlocks\Element\ContactFormBlock
     - Syntro\ElementalBootstrapBlocks\Element\ContentImageSplitBlock
     - Syntro\ElementalBootstrapBlocks\Element\CustomerReviewBlock
     - Syntro\ElementalBootstrapBlocks\Element\EmployeesBlock
