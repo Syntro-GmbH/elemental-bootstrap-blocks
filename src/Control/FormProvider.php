@@ -11,12 +11,19 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextField;
 
-
 /**
  * Handles the creation of forms
+ *
+ * @author Matthias Leutenegger
  */
 class FormProvider extends PageController
 {
+    /**
+     * providesForms - returns the form variation
+     *
+     * @return array
+     */
+
     public static function providesForms()
     {
         return [
@@ -52,7 +59,7 @@ class FormProvider extends PageController
      * '$this->data()' to get the calling form block
      *
      * @param  array $data the data from the form
-     * @param  Form $form  the form itself
+     * @param  Form  $form the form itself
      * @return mixed
      */
     public function doHandleDefaultForm($data, Form $form)
@@ -61,5 +68,4 @@ class FormProvider extends PageController
 
         return $this->redirectBack();
     }
-
 }

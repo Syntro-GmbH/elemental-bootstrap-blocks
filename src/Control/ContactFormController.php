@@ -13,10 +13,10 @@ use SilverStripe\Forms\TextField;
 use Syntro\ElementalBootstrapBlocks\Control\FormProvider;
 use SilverStripe\Core\Injector\Injector;
 
-
-
 /**
  * Handles proxying the form post to the form provider
+ *
+ * @author Matthias Leutenegger
  */
 class ContactFormBlockController extends ElementController
 {
@@ -44,9 +44,10 @@ class ContactFormBlockController extends ElementController
         parent::init();
 
         if (!$this->getFormProviderController()) {
+            /** @var string|null */
             $controllerClass = $this->element->config()->get('forms_provider');
             if (!class_exists($controllerClass ?? '')) {
-                throw new Exception(
+                throw new \Exception(
                     'Could not find form provider class ' . $controllerClass . '.'
                 );
             }
@@ -77,14 +78,14 @@ class ContactFormBlockController extends ElementController
     }
 
     /**
-     * @param string $action
-     *
+     * @param string $action action to append
      * @return string
      */
     public function Link($action = null)
     {
         $id = $this->element->ID;
         $segment = Controller::join_links('element', $id, $action);
+        /** @var mixed */
         $page = Director::get_current_page();
 
         if ($page && !($page instanceof ElementController)) {
@@ -105,18 +106,18 @@ class ContactFormBlockController extends ElementController
      */
     public function getFormProviderController()
     {
-        return $this->userFormController;
+        return $this->formProviderController;
     }
 
     /**
      * Set the associated FormProvider
      *
-     * @param FormProvider $controller    the controller
+     * @param FormProvider $controller the controller
      * @return ContactFormBlockController $this
      */
     public function setFormProviderController(FormProvider $controller)
     {
-        $this->userFormController = $controller;
+        $this->formProviderController = $controller;
         return $this;
     }
 }

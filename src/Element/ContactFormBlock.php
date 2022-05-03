@@ -163,7 +163,7 @@ class ContactFormBlock extends BaseElement
 
         $providerClass = $this->config()->get('forms_provider');
         if (!class_exists($providerClass ?? '')) {
-            throw new Exception(
+            throw new \Exception(
                 'Could not find form provider class ' . $providerClass . '.'
             );
         }
