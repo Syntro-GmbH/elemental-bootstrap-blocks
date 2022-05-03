@@ -10,46 +10,70 @@ use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextField;
+use Syntro\ElementalBootstrapBlocks\Control\FormProvider;
+use SilverStripe\Core\Injector\Injector;
 
 
 
 /**
- *
+ * Handles proxying the form post to the form provider
  */
 class ContactFormBlockController extends ElementController
 {
+
+    /**
+     * @config
+     * @var array
+     */
     private static $allowed_actions = [
-        'HelloForm'
+        'Form'
     ];
-    public function getTest()
+
+    /**
+     * @var FormProvider
+     */
+    protected $formProviderController;
+
+    /**
+     * init
+     *
+     * @return void
+     */
+    protected function init()
     {
-        return 'Test';
+        parent::init();
+
+        if (!$this->getFormProviderController()) {
+            $controllerClass = $this->element->config()->get('forms_provider');
+            if (!class_exists($controllerClass ?? '')) {
+                throw new Exception(
+                    'Could not find form provider class ' . $controllerClass . '.'
+                );
+            }
+            $controller = Injector::inst()->create($controllerClass, $this->element);
+        } else {
+            $controller = $this->getFormProviderController();
+        }
+        $controller->setRequest($this->getRequest());
+        $controller->doInit();
+
+        $this->setFormProviderController($controller);
     }
 
-    public function HelloForm()
+    /**
+     * Form - Returns the required form
+     *
+     * @return Form|null
+     */
+    public function Form()
     {
-        $fields = new FieldList(
-            TextField::create('Name', 'Your Name')
-        );
-
-        $actions = new FieldList(
-            FormAction::create('doSayHello')->setTitle('Say hello')
-        );
-
-        $required = new RequiredFields('Name');
-
-        // $formAction = $this->Link('HelloForm');
-
-        $form = new Form($this, 'HelloForm', $fields, $actions, $required);
-
-        return $form;
-    }
-
-    public function doSayHello($data, Form $form)
-    {
-        $form->sessionMessage('Hello ' . $data['Name'], 'success');
-
-        return $this->redirectBack();
+        $element = $this->element;
+        $formName = $element->FormName;
+        $provider = $this->getFormProviderController();
+        if (method_exists($provider, $formName)) {
+            return $provider->$formName();
+        }
+        return null;
     }
 
     /**
@@ -67,10 +91,32 @@ class ContactFormBlockController extends ElementController
             return $page->Link($segment);
         }
 
-        if ($controller = $this->getParentController()) {
+        if ($controller = Controller::curr()) {
             return $controller->Link($segment);
         }
 
         return $segment;
+    }
+
+    /**
+     * Return the associated FormProvider
+     *
+     * @return FormProvider
+     */
+    public function getFormProviderController()
+    {
+        return $this->userFormController;
+    }
+
+    /**
+     * Set the associated FormProvider
+     *
+     * @param FormProvider $controller    the controller
+     * @return ContactFormBlockController $this
+     */
+    public function setFormProviderController(FormProvider $controller)
+    {
+        $this->userFormController = $controller;
+        return $this;
     }
 }
