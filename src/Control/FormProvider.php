@@ -23,7 +23,6 @@ class FormProvider extends PageController
      *
      * @return array
      */
-
     public static function providesForms()
     {
         return [

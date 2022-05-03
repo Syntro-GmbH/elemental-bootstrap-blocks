@@ -42,9 +42,7 @@ class ContactFormBlockController extends ElementController
     protected function init()
     {
         parent::init();
-
         if (!$this->getFormProviderController()) {
-            /** @var string|null */
             $controllerClass = $this->element->config()->get('forms_provider');
             if (!class_exists($controllerClass ?? '')) {
                 throw new \Exception(
@@ -91,7 +89,7 @@ class ContactFormBlockController extends ElementController
         if ($page && !($page instanceof ElementController)) {
             return $page->Link($segment);
         }
-
+        /** @var Controller|null */
         if ($controller = Controller::curr()) {
             return $controller->Link($segment);
         }
@@ -102,7 +100,7 @@ class ContactFormBlockController extends ElementController
     /**
      * Return the associated FormProvider
      *
-     * @return FormProvider
+     * @return FormProvider|null
      */
     public function getFormProviderController()
     {
