@@ -37,6 +37,11 @@ de:
     AUTOPLAYDESC: Wenn aktiv wird das Karousell automatisch rotieren.
   Syntro\ElementalBootstrapBlocks\Element\HeroBlock:
     BlockType: Hero
+  Syntro\ElementalBootstrapBlocks\Element\ContactFormBlock:
+    FormVariant: Formularvariante
+    Content: Inhalt
+    SuccessResponse: Meldung bei Erfolg
+    BlockType: Kontaktformular
   Syntro\ElementalBootstrapBlocks\Element\ContentImageSplitBlock:
     IMAGETITLE: 'Bild'
     BlockType: 'Bild & Inhalt'

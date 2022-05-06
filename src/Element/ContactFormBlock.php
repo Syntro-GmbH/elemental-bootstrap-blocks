@@ -1,6 +1,8 @@
 <?php
 namespace Syntro\ElementalBootstrapBlocks\Element;
 
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\Form;
 use SilverStripe\Control\Controller;
@@ -66,8 +68,7 @@ class ContactFormBlock extends BaseElement
      */
     private static $db = [
         'FormName' => 'Varchar',
-        'SendToEmail' => 'Varchar',
-        'Subject' => 'Varchar',
+        'Content' => 'HTMLText',
         'SuccessResponse' => 'Text'
     ];
 
@@ -105,7 +106,9 @@ class ContactFormBlock extends BaseElement
         $fields = parent::getCMSFields();
 
         $fields->removeByName([
-            'FormName'
+            'FormName',
+            'Content',
+            'SuccessResponse'
         ]);
         $controllerClass = $this->config()->get('forms_provider');
 
@@ -114,8 +117,16 @@ class ContactFormBlock extends BaseElement
             [
                 DropdownField::create(
                     'FormName',
-                    'Form',
+                    _t(__CLASS__ . '.FormVariant', 'Form Variant'),
                     $controllerClass::providesForms()
+                ),
+                HtmlEditorField::create(
+                    'Content',
+                    _t(__CLASS__ . '.Content', 'Content')
+                ),
+                TextareaField::create(
+                    'SuccessResponse',
+                    _t(__CLASS__ . '.SuccessResponse', 'Nachricht bei Erfolg')
                 )
             ]
         );
