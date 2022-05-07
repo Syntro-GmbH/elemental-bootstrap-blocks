@@ -90,7 +90,7 @@ class ContactFormBlockController extends ElementController
             return $page->Link($segment);
         }
         /** @var Controller|null */
-        $controller = Controller::curr()
+        $controller = Controller::curr();
         if ($controller) {
             return $controller->Link($segment);
         }
