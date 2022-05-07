@@ -11,6 +11,7 @@ They lack any template, so you need to provide the following templates in the
 * [BreadcrumbsBlock](src/Element/BreadcrumbsBlock.php)
 * [CardDeckBlock](src/Element/CardDeckBlock.php)
 * [CarouselBlock](src/Element/CarouselBlock.php)
+* [ContactFormBlock](src/Element/ContactFormBlock.php) ([docs](docs/ContactFormBlock.md))
 * [ContentImageSplitBlock](src/Element/ContentImageSplitBlock.php)
 * [CustomerReviewBlock](src/Element/CustomerReviewBlock.php)
 * [EmployeesBlock](src/Element/EmployeesBlock.php)

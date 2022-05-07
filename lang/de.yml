@@ -37,6 +37,11 @@ de:
     AUTOPLAYDESC: Wenn aktiv wird das Karousell automatisch rotieren.
   Syntro\ElementalBootstrapBlocks\Element\HeroBlock:
     BlockType: Hero
+  Syntro\ElementalBootstrapBlocks\Element\ContactFormBlock:
+    FormVariant: Formularvariante
+    Content: Inhalt
+    SuccessResponse: Meldung bei Erfolg
+    BlockType: Kontaktformular
   Syntro\ElementalBootstrapBlocks\Element\ContentImageSplitBlock:
     IMAGETITLE: 'Bild'
     BlockType: 'Bild & Inhalt'
@@ -150,3 +155,12 @@ de:
     BlockType: Inhalt
   Syntro\ElementalBootstrapBlocks\Element\BlogImageBlock:
     BlockType: Bild
+  Syntro\ElementalBootstrapBlocks\Control\FormProvider:
+    DefaultFormName: Standardform
+    FullName: Voller Name
+    Phone: Telefonnummer
+    Email: E-Mail
+    Message: Nachricht
+    Submit: Absenden
+    MailError: Da ist etwas schiefgelaufen, bitte kontaktiere uns direkt.
+    MailSubject: Du hast eine neue Nachricht von einem potenziellen Kunden!
