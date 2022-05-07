@@ -2,7 +2,7 @@
 namespace Syntro\ElementalBootstrapBlocks\Element;
 
 use SilverStripe\Forms\TextareaField;
-use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\Form;
 use SilverStripe\Control\Controller;

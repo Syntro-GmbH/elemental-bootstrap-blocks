@@ -4,6 +4,7 @@ namespace Syntro\ElementalBootstrapBlocks\Control;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
+use SilverStripe\Control\HTTPResponse;
 use PageController;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Form;
