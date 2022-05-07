@@ -69,7 +69,7 @@ class ContactFormBlockController extends ElementController
         $element = $this->element;
         $formName = $element->FormName;
         $provider = $this->getFormProviderController();
-        if (method_exists($provider, $formName)) {
+        if ($provider->hasMethod($formName)) {
             return $provider->$formName();
         }
         return null;

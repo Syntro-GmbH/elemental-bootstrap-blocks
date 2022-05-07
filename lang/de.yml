@@ -155,3 +155,12 @@ de:
     BlockType: Inhalt
   Syntro\ElementalBootstrapBlocks\Element\BlogImageBlock:
     BlockType: Bild
+  Syntro\ElementalBootstrapBlocks\Control\FormProvider:
+    DefaultFormName: Standardform
+    FullName: Voller Name
+    Phone: Telefonnummer
+    Email: E-Mail
+    Message: Nachricht
+    Submit: Absenden
+    MailError: Da ist etwas schiefgelaufen, bitte kontaktiere uns direkt.
+    MailSubject: Du hast eine neue Nachricht von einem potenziellen Kunden!

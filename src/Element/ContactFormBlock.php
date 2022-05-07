@@ -118,7 +118,7 @@ class ContactFormBlock extends BaseElement
                 DropdownField::create(
                     'FormName',
                     _t(__CLASS__ . '.FormVariant', 'Form Variant'),
-                    $controllerClass::providesForms()
+                    Injector::inst()->create($controllerClass, $this)->providedForms()
                 ),
                 HtmlEditorField::create(
                     'Content',
@@ -183,7 +183,7 @@ class ContactFormBlock extends BaseElement
         $provider->setRequest($current->getRequest());
 
         $formName = $this->FormName;
-        if (!method_exists($provider, $formName)) {
+        if (!$provider->hasMethod($formName)) {
             return null;
         }
 
