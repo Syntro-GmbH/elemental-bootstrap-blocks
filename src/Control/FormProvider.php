@@ -93,7 +93,7 @@ class FormProvider extends PageController
         );
         $this->extend('updateDefaultFormActions', $actions);
 
-        $required = new RequiredFields([/*'name', 'phone', 'email'*/]);
+        $required = new RequiredFields(['name', 'phone', 'email']);
         $this->extend('updateDefaultFormRequired', $required);
 
         $form = new Form($this, 'HelloForm', $fields, $actions, $required);
