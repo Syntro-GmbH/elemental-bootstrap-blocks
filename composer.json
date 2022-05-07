@@ -14,6 +14,7 @@
         "dnadesign/silverstripe-elemental": "^4",
         "gorriecoe/silverstripe-link": "^1",
         "gorriecoe/silverstripe-linkfield": "^1",
+        "syntro/silverstripe-bootstrap-forms": "1.x-dev",
         "syntro/silverstripe-elemental-baseitem": "^1",
         "unclecheese/display-logic": "^2"
     },
