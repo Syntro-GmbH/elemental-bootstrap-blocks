@@ -166,10 +166,11 @@ class FormProvider extends PageController
         }
         $body .= '</table>';
         $email = new Email($from, $to, $subject, $body);
+        $success = false;
         try {
-            return $email->send();
+            $success = $email->send();
         } finally {
-            return false;
+            return $success;
         }
     }
 }
