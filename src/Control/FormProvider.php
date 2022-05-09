@@ -155,7 +155,7 @@ class FormProvider extends PageController
         if (!$to || !$from) {
             return false;
         }
-        $subject = _t(__CLASS__ . 'MailSubject', 'You have recieved a new Message from a potential Customer!');
+        $subject = _t(__CLASS__ . '.MailSubject', 'You have recieved a new Message from a potential Customer!');
         $body = '<table style="max-width: 100%; border-spacing: 10px;">';
         $body .= "<tr><td><b>Origin:</b></td><td><a href=\"{$this->getReturnReferer()}\">{$this->getReturnReferer()}</a></td></tr>";
         foreach ($data as $key => $value) {
