@@ -40,7 +40,7 @@ class ImageAspectRatioExtension extends DataExtension
     ];
 
     /**
-     * Add default values to database 
+     * Add default values to database
      * @config
      *  @var array
      */
