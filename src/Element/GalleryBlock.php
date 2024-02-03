@@ -18,28 +18,33 @@ class GalleryBlock extends BaseElement
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockGallery';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Gallery Block';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Gallery Blocks';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = false;
 
     /**
+     * @config
      * @var bool
      */
     private static $enable_youtube_links = true;
@@ -53,12 +58,14 @@ class GalleryBlock extends BaseElement
     private static $displays_title_in_template = false;
 
     /**
+     * @config
      * @var string
      */
     private static $icon = 'font-icon-block-layout-4';
 
     /**
      * available holder styles
+     * @config
      * @var array
      */
     private static $holder_styles = [
@@ -67,30 +74,35 @@ class GalleryBlock extends BaseElement
 
     /**
      * available styles
+     * @config
      * @var array
      */
     private static $styles = [];
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [];
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [];
 
     /**
      * Has_many relationship
+     * @config
      * @var array
      */
     private static $has_many = [
@@ -99,6 +111,7 @@ class GalleryBlock extends BaseElement
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

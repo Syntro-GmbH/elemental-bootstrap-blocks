@@ -23,28 +23,33 @@ class ContactFormBlock extends BaseElement
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockContactForm';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Contact Form';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Contact Forms';
 
     /**
+     * @config
      * @var string
      */
     private static $controller_class = ContactFormBlockController::class;
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = true;
@@ -58,12 +63,14 @@ class ContactFormBlock extends BaseElement
     private static $displays_title_in_template = true;
 
     /**
+     * @config
      * @var string
      */
     private static $icon = 'font-icon-block-phone';
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [
@@ -74,18 +81,21 @@ class ContactFormBlock extends BaseElement
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [];
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [];

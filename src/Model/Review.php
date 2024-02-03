@@ -20,12 +20,23 @@ class Review extends BaseItem
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockCustomerReview_Review';
 
+    /**
+     * @config
+     *
+     * @var boolean
+     */
     private static $displays_title_in_template = false;
 
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $db = [
         'Position' => 'Varchar',
         'Comment' => 'Text',
@@ -34,10 +45,16 @@ class Review extends BaseItem
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $has_one = [
         'Section' => CustomerReviewBlock::class,
         'Portrait' => Image::class
@@ -47,6 +64,7 @@ class Review extends BaseItem
     /**
      * Defines summary fields commonly used in table columns
      * as a quick overview of the data for this dataobject
+     * @config
      * @var array
      */
     private static $summary_fields = [
@@ -56,6 +74,7 @@ class Review extends BaseItem
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

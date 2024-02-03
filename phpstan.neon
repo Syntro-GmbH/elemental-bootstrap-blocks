@@ -1,7 +1,5 @@
-parameters:
-    autoload_directories:
-        - src
-    ignoreErrors:
-        - '#Call to an undefined method UncleCheese\\DisplayLogic\\Criteria::*+#'
 includes:
-    - vendor/symbiote/silverstripe-phpstan/phpstan.neon
+    - vendor/syntro/silverstripe-phpstan/phpstan.neon
+parameters:
+	ignoreErrors:
+		- '#Call to an undefined method UncleCheese\\DisplayLogic\\Criteria::[a-zA-Z0-9\\_]+\(\)#'

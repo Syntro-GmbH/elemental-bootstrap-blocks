@@ -15,23 +15,27 @@ class HeroBlock extends ElementContent
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockHero';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Hero';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Heroes';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = true;
@@ -45,12 +49,14 @@ class HeroBlock extends ElementContent
     private static $displays_title_in_template = false;
 
     /**
+     * @config
      * @var string
      */
     private static $icon = 'font-icon-block-promo-2';
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [
@@ -59,12 +65,14 @@ class HeroBlock extends ElementContent
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [
@@ -73,6 +81,7 @@ class HeroBlock extends ElementContent
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

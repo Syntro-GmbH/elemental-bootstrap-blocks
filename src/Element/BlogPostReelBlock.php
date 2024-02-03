@@ -30,23 +30,27 @@ class BlogPostReelBlock extends BaseElement
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockBlogPostReel';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Blog Posts';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Blog Posts';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = false;
@@ -60,18 +64,21 @@ class BlogPostReelBlock extends BaseElement
     private static $displays_title_in_template = false;
 
     /**
+     * @config
      * @var string
      */
     private static $icon = 'font-icon-block-bookmark';
 
     /**
      * available styles
+     * @config
      * @var array
      */
     private static $styles = [];
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [
@@ -81,6 +88,7 @@ class BlogPostReelBlock extends BaseElement
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [
@@ -88,11 +96,11 @@ class BlogPostReelBlock extends BaseElement
         'ShowLatest' =>  5,
     ];
 
-    /**
-     * Many_many relationship - This is done via config to allow for the blog
-     * module to be not installed
-     * @var array
-     */
+    // /**
+    //  * Many_many relationship - This is done via config to allow for the blog
+    //  * module to be not installed
+    //  * @var array
+    //  */
     // private static $many_many = [
     //     'Categories' => BlogCategory::class,
     //     'Tags' => BlogTag::class,

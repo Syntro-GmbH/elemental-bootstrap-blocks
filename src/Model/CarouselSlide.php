@@ -19,22 +19,39 @@ class CarouselSlide extends BaseItem
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockCarousel_Slide';
 
+    /**
+     * @config
+     *
+     * @var boolean
+     */
     private static $displays_title_in_template = true;
 
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $db = [
         'Content' => 'HTMLText',
     ];
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $has_one = [
         'Section' => CarouselBlock::class,
         'Image' => Image::class,
@@ -43,6 +60,7 @@ class CarouselSlide extends BaseItem
 
     /**
      * duplicate relations
+     * @config
      *  @var array
      */
     private static $cascade_duplicates = [
@@ -53,6 +71,7 @@ class CarouselSlide extends BaseItem
     /**
      * Defines summary fields commonly used in table columns
      * as a quick overview of the data for this dataobject
+     * @config
      * @var array
      */
     private static $summary_fields = [
@@ -62,6 +81,7 @@ class CarouselSlide extends BaseItem
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

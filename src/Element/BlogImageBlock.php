@@ -16,23 +16,27 @@ class BlogImageBlock extends BaseElement
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockBlogImage';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Image Block';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Image Blocks';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = true;
@@ -46,30 +50,35 @@ class BlogImageBlock extends BaseElement
     private static $displays_title_in_template = false;
 
     /**
+     * @config
      * @var string
      */
     private static $icon = 'font-icon-block-file';
 
     /**
      * available styles
+     * @config
      * @var array
      */
     private static $styles = [];
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [];
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [
@@ -78,6 +87,7 @@ class BlogImageBlock extends BaseElement
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

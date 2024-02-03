@@ -31,12 +31,14 @@ class LinkStyleExtension extends DataExtension
 {
 
     /**
+     * @config
      * @var string
      */
     private static $link_field_name = 'Link';
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [

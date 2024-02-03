@@ -16,23 +16,27 @@ class BlogContentBlock extends ElementContent
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockBlogContent';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Content Block';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Content Blocks';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = true;
@@ -48,30 +52,35 @@ class BlogContentBlock extends ElementContent
 
     /**
      * available styles
+     * @config
      * @var array
      */
     private static $styles = [];
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [];
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [];
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [];
