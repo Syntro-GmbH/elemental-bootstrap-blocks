@@ -29,23 +29,27 @@ class MapBlock extends BaseElement
     private static $google_maps_api_key = '';
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockMap';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Map Block';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Map Blocks';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = false;
@@ -59,18 +63,21 @@ class MapBlock extends BaseElement
     private static $displays_title_in_template = false;
 
     /**
+     * @config
      * @var string
      */
     private static $icon = 'font-icon-block-globe';
 
     /**
      * available holder styles
+     * @config
      * @var array
      */
     private static $holder_styles = [];
 
     /**
      * available styles
+     * @config
      * @var array
      */
     private static $styles = [];
@@ -78,6 +85,7 @@ class MapBlock extends BaseElement
     /**
      * Ensures that the methods are wrapped in the correct type and
      * values are safely escaped while rendering in the template.
+     * @config
      * @var array
      */
     private static $casting = [
@@ -86,6 +94,7 @@ class MapBlock extends BaseElement
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [
@@ -100,6 +109,7 @@ class MapBlock extends BaseElement
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [
@@ -109,12 +119,14 @@ class MapBlock extends BaseElement
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [];
 
     /**
      * Has_many relationship
+     * @config
      * @var array
      */
     private static $has_many = [
@@ -123,6 +135,7 @@ class MapBlock extends BaseElement
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

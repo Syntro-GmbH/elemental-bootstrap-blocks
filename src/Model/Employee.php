@@ -27,8 +27,18 @@ class Employee extends BaseItem
      */
     private static $table_name = 'BlockEmployees_Employee';
 
+    /**
+     * @config
+     *
+     * @var boolean
+     */
     private static $displays_title_in_template = false;
 
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $db = [
         'Position' => 'Varchar',
         'SMLLinkedin' => 'Varchar',
@@ -39,11 +49,16 @@ class Employee extends BaseItem
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
-
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $has_one = [
         'Section' => EmployeesBlock::class,
         'Portrait' => Image::class
@@ -53,6 +68,7 @@ class Employee extends BaseItem
     /**
      * Defines summary fields commonly used in table columns
      * as a quick overview of the data for this dataobject
+     * @config
      * @var array
      */
     private static $summary_fields = [
@@ -62,6 +78,7 @@ class Employee extends BaseItem
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

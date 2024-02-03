@@ -16,18 +16,21 @@ class ContentImageSplitBlock extends ElementContent
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockContentImageSplit';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Content & Image Split Block';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Content & Image Split Blocks';
@@ -35,6 +38,7 @@ class ContentImageSplitBlock extends ElementContent
     /**
      * Defines extension names and parameters to be applied
      *  to this object upon construction.
+     * @config
      *  @var array
      */
     private static $extensions = [
@@ -42,6 +46,7 @@ class ContentImageSplitBlock extends ElementContent
     ];
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = true;
@@ -55,12 +60,14 @@ class ContentImageSplitBlock extends ElementContent
     private static $displays_title_in_template = false;
 
     /**
+     * @config
      * @var string
      */
     private static $icon = 'font-icon-block-promo-3';
 
     /**
      * available styles
+     * @config
      * @var array
      */
     private static $styles = [
@@ -70,18 +77,21 @@ class ContentImageSplitBlock extends ElementContent
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [];
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [
@@ -90,6 +100,7 @@ class ContentImageSplitBlock extends ElementContent
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

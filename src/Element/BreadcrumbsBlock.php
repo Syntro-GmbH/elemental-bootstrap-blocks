@@ -13,23 +13,27 @@ class BreadcrumbsBlock extends BaseElement
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockBreadcrumbs';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Breadcrumb';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Breadcrumbs';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = true;
@@ -44,29 +48,34 @@ class BreadcrumbsBlock extends BaseElement
 
     /**
      * @var string
+     * @config
      */
     private static $icon = 'font-icon-block-external-link';
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [];
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [];
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [];

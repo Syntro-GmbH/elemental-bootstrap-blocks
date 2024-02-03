@@ -27,24 +27,37 @@ class MapMarker extends BaseItem
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockMap_MapMarker';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Marker';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Markers';
 
+    /**
+     * @config
+     *
+     * @var boolean
+     */
     private static $displays_title_in_template = false;
 
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $db = [
         'Lat' => 'Double',
         'Long' => 'Double',
@@ -55,11 +68,16 @@ class MapMarker extends BaseItem
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
-
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $has_one = [
         'Section' => MapBlock::class,
     ];
@@ -68,6 +86,7 @@ class MapMarker extends BaseItem
     /**
      * Defines summary fields commonly used in table columns
      * as a quick overview of the data for this dataobject
+     * @config
      * @var array
      */
     private static $summary_fields = [
@@ -78,6 +97,7 @@ class MapMarker extends BaseItem
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [];

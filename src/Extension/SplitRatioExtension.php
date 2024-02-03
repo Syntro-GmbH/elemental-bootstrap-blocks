@@ -15,6 +15,7 @@ class SplitRatioExtension extends DataExtension
 {
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [
@@ -23,6 +24,7 @@ class SplitRatioExtension extends DataExtension
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [

@@ -19,23 +19,27 @@ class CustomerReviewBlock extends BaseElement
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockCustomerReview';
 
     /**
      * Singular name for CMS
+     * @config
      *  @var string
      */
     private static $singular_name = 'Customer Review Block';
 
     /**
      * Plural name for CMS
+     * @config
      *  @var string
      */
     private static $plural_name = 'Customer Review Blocks';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = false;
@@ -49,12 +53,14 @@ class CustomerReviewBlock extends BaseElement
     private static $displays_title_in_template = false;
 
     /**
+     * @config
      * @var string
      */
     private static $icon = 'font-icon-block-award';
 
     /**
      * available holder styles
+     * @config
      * @var array
      */
     private static $holder_styles = [
@@ -63,12 +69,14 @@ class CustomerReviewBlock extends BaseElement
 
     /**
      * available styles
+     * @config
      * @var array
      */
     private static $styles = [];
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [
@@ -77,18 +85,21 @@ class CustomerReviewBlock extends BaseElement
 
     /**
      * Add default values to database
+     * @config
      *  @var array
      */
     private static $defaults = [];
 
     /**
      * Has_one relationship
+     * @config
      * @var array
      */
     private static $has_one = [];
 
     /**
      * Has_many relationship
+     * @config
      * @var array
      */
     private static $has_many = [
@@ -97,6 +108,7 @@ class CustomerReviewBlock extends BaseElement
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [

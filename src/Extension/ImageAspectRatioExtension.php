@@ -28,6 +28,7 @@ class ImageAspectRatioExtension extends DataExtension
 
     /**
      * Database fields
+     * @config
      * @var array
      */
     private static $db = [
@@ -39,7 +40,8 @@ class ImageAspectRatioExtension extends DataExtension
     ];
 
     /**
-     * Add default values to database
+     * Add default values to database 
+     * @config
      *  @var array
      */
     private static $defaults = [

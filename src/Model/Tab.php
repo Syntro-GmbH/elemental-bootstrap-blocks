@@ -24,18 +24,34 @@ class Tab extends BaseItem
      */
     private static $table_name = 'BlockTabSet_Tab';
 
+    /**
+     * @config
+     *
+     * @var boolean
+     */
     private static $displays_title_in_template = false;
 
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $db = [
         'Content' => 'HTMLText',
     ];
 
     /**
+     * @config
      * Add default values to database
      *  @var array
      */
     private static $defaults = [];
 
+    /**
+     * @config
+     *
+     * @var array
+     */
     private static $has_one = [
         'Section' => TabSetBlock::class,
         'Image' => Image::class
@@ -43,6 +59,7 @@ class Tab extends BaseItem
 
     /**
      * duplicate relations
+     * @config
      *  @var array
      */
     private static $cascade_duplicates = [
@@ -52,6 +69,7 @@ class Tab extends BaseItem
     /**
      * Defines summary fields commonly used in table columns
      * as a quick overview of the data for this dataobject
+     * @config
      * @var array
      */
     private static $summary_fields = [
@@ -60,6 +78,7 @@ class Tab extends BaseItem
 
     /**
      * Relationship version ownership
+     * @config
      * @var array
      */
     private static $owns = [
