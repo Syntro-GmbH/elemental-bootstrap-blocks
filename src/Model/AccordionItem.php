@@ -27,7 +27,7 @@ class AccordionItem extends BaseItem
 
     /**
      * @config
-     * @var string
+     * @var boolean
      */
     private static $displays_title_in_template = false;
 
