@@ -11,16 +11,14 @@
 	failOnWarning="true"
 >
     <testsuite name="Default">
-        <directory>tests/php</directory>
+        <directory>tests</directory>
     </testsuite>
-
-	<filter>
-        <blacklist>
+    <coverage>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <exclude>
             <directory suffix=".php">vendor/</directory>
-        </blacklist>
-
-		<whitelist>
-			<directory suffix=".php">src</directory>
-		</whitelist>
-	</filter>
+        </exclude>
+    </coverage>
 </phpunit>
