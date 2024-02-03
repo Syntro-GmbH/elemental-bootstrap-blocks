@@ -7,7 +7,7 @@
   "dependencies": {
     "@syntro-opensource/browserslist-config-base": "^1.0.0",
     "@syntro-opensource/eslint-config-base": "^1.0.2",
-    "@syntro-opensource/webpack-config": "^1.2.1"
+    "@syntro-opensource/webpack-config": "^1.4.0"
   },
   "browserslist": [
     "extends @syntro-opensource/browserslist-config-base"
