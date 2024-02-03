@@ -18,7 +18,8 @@ function initMap() {
 
     const initialPosition = marker.length > 0 ? marker[0] : { lat: 0, lng: 0 };
     const map = new google.maps.Map(
-      mapBlock, { center: initialPosition, zoom: mapoptions.zoom, styles: mapoptions.styles },
+      mapBlock,
+      { center: initialPosition, zoom: mapoptions.zoom, styles: mapoptions.styles },
     );
 
     for (let j = 0; j < marker.length; j += 1) {
