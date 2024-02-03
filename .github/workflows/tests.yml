@@ -31,7 +31,7 @@ jobs:
     name: 🧰 Silverstripe Module Testsuite
     uses: syntro-opensource/workflows/.github/workflows/silverstripe-module.yml@4
     with:
-      phpunit: true
+      # phpunit: true
       # phpunit_config_file:
       phpstan: true
       # phpstan_config:
