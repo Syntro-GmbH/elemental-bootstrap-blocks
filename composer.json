@@ -14,14 +14,14 @@
         "dnadesign/silverstripe-elemental": "^4",
         "gorriecoe/silverstripe-link": "^1",
         "gorriecoe/silverstripe-linkfield": "^1",
-        "syntro/silverstripe-bootstrap-forms": "1.x-dev",
+        "syntro/silverstripe-bootstrap-forms": "^1",
         "syntro/silverstripe-elemental-baseitem": "^1",
         "unclecheese/display-logic": "^2"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.0",
         "syntro/silverstripe-phpstan": "^1",
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^9.4"
     },
     "keywords": [],
     "license": "UNLICENSED",
