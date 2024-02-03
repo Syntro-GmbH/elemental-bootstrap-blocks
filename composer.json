@@ -45,5 +45,13 @@
         "expose": [
             "client/dist"
         ]
+    },
+    "config": {
+        "process-timeout": 600,
+        "allow-plugins": {
+            "composer/installers": true,
+            "silverstripe/recipe-plugin": true,
+            "silverstripe/vendor-plugin": true
+        }
     }
 }
