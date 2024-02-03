@@ -4,5 +4,15 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: Bump
+    assignees:
+      - 'mleutenegger'
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: Bump
     assignees:
       - 'mleutenegger'
