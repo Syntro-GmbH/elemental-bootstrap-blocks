@@ -8,6 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+<a name="1.3.0"></a>
+## [1.3.0] - 2024-02-03
+### 🍰 Added
+- dependabot for npm
+
+### 🐞 Fixed
+- built with new deps
+- Correct translation of default form email subject
+
+### 🔧 Changed
+- use testsuite and update deps ([#16](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/16))
+
+### 🧬 Dependencies
+- Bump [@syntro](https://github.com/syntro)-opensource/eslint-config-base from 1.0.2 to 1.1.2 ([#18](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/18))
+- Bump [@syntro](https://github.com/syntro)-opensource/webpack-config from 1.2.1 to 1.4.0 ([#17](https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/issues/17))
+
+
 <a name="1.2.7"></a>
 ## [1.2.7] - 2022-05-07
 ### 🐞 Fixed
@@ -99,7 +116,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - phpcs
 
 
-[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.7...HEAD
+[Unreleased]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.7...1.3.0
 [1.2.7]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.6...1.2.7
 [1.2.6]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.5...1.2.6
 [1.2.5]: https://github.com/Syntro-GmbH/elemental-bootstrap-blocks/compare/1.2.4...1.2.5
