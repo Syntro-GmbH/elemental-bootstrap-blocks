@@ -96,11 +96,11 @@ class BlogPostReelBlock extends BaseElement
         'ShowLatest' =>  5,
     ];
 
-    /**
-     * Many_many relationship - This is done via config to allow for the blog
-     * module to be not installed
-     * @var array
-     */
+    // /**
+    //  * Many_many relationship - This is done via config to allow for the blog
+    //  * module to be not installed
+    //  * @var array
+    //  */
     // private static $many_many = [
     //     'Categories' => BlogCategory::class,
     //     'Tags' => BlogTag::class,

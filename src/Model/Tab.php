@@ -20,6 +20,7 @@ class Tab extends BaseItem
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockTabSet_Tab';

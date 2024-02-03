@@ -23,6 +23,7 @@ class Employee extends BaseItem
 {
     /**
      * Defines the database table name
+     * @config
      *  @var string
      */
     private static $table_name = 'BlockEmployees_Employee';

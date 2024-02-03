@@ -38,6 +38,7 @@ class CardDeckBlock extends BaseElement
     private static $plural_name = 'Card Decks';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = false;

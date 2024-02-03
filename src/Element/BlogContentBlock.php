@@ -36,6 +36,7 @@ class BlogContentBlock extends ElementContent
     private static $plural_name = 'Content Blocks';
 
     /**
+     * @config
      * @var bool
      */
     private static $inline_editable = true;
