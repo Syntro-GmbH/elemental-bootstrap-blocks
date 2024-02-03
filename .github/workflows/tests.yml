@@ -26,12 +26,17 @@ on:
     branches:
       - develop
       - master
-env:
-  DB: MYSQL
-  PDO: 1
-  SS_ENVIRONMENT_TYPE: "dev"
-  RECIPE_CMS_VERSION: '4.10'
 jobs:
+  silverstripe-module:
+    name: 🧰 Silverstripe Module Testsuite
+    uses: syntro-opensource/workflows/.github/workflows/silverstripe-module.yml@4
+    with:
+      phpunit: true
+      # phpunit_config_file:
+      phpstan: true
+      # phpstan_config:
+      # phpstan_bootstrap:
+      phpcs: true
   # phpunit:
   #   name: 🧩 PHPUnit
   #   runs-on: ubuntu-latest
@@ -82,36 +87,36 @@ jobs:
   #         token: ${{ secrets.CODECOV_TOKEN }}
   #         files: ./coverage.xml
   #       if: ${{ matrix.php == '7.4' }}
-  phpstan:
-    name: 🔺 PHPStan
-    runs-on: ubuntu-latest
-    container: brettt89/silverstripe-web:7.4-apache
-    steps:
-      - name: Install Composer
-        run: |
-          curl \
-            -sS https://getcomposer.org/installer \
-            | php && \
-            mv -f composer.phar /usr/local/bin/composer
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: install dependencies
-        run: |
-          composer require --no-update silverstripe/recipe-cms:$RECIPE_CMS_VERSION &&\
-          composer require --no-update silverstripe/blog &&\
-          composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
-      - name: run phpstan
-        run: vendor/bin/phpstan analyse src/ -c "phpstan.neon" -a vendor/symbiote/silverstripe-phpstan/bootstrap.php --level 4 --memory-limit 1G
-  phpcs:
-    name: 🔮 PHPcs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: lint source
-        uses: chindit/actions-phpcs@master
-        with:
-          dir: src/
+  # phpstan:
+  #   name: 🔺 PHPStan
+  #   runs-on: ubuntu-latest
+  #   container: brettt89/silverstripe-web:7.4-apache
+  #   steps:
+  #     - name: Install Composer
+  #       run: |
+  #         curl \
+  #           -sS https://getcomposer.org/installer \
+  #           | php && \
+  #           mv -f composer.phar /usr/local/bin/composer
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #     - name: install dependencies
+  #       run: |
+  #         composer require --no-update silverstripe/recipe-cms:$RECIPE_CMS_VERSION &&\
+  #         composer require --no-update silverstripe/blog &&\
+  #         composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
+  #     - name: run phpstan
+  #       run: vendor/bin/phpstan analyse src/ -c "phpstan.neon" -a vendor/symbiote/silverstripe-phpstan/bootstrap.php --level 4 --memory-limit 1G
+  # phpcs:
+  #   name: 🔮 PHPcs
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #     - name: lint source
+  #       uses: chindit/actions-phpcs@master
+  #       with:
+  #         dir: src/
       # - name: lint tests
       #   uses: chindit/actions-phpcs@master
       #   with:
